@@ -21,12 +21,8 @@ Audieyes is guided by a mission to redefine the boundaries of accessibility for 
 
 Audieyes introduces a range of innovative features designed to meet the diverse needs of its users:
 
--   **Object Detection and Spacial Description**: Offers detailed descriptions of surroundings, enhancing understanding and navigation.
--   **Color Detection and Clothes Recognition**: Utilizes advanced image recognition to help users identify and select clothing independently.
--   **Weather Recognition and Personalized Forecasts**: Provides tailored weather information to assist with planning and safety.
--   **Document Reading and OCR Capabilities**: Enables users to access printed materials through optical character recognition technology.
--   **Phone Management through Voice Commands**: Allows for intuitive control of smartphones, facilitating communication and information access.
--   **Intelligent Navigation Assistance**: Incorporates AI and smart cane technology to provide guidance in unfamiliar environments.
+-   **Environment Description**: Offers detailed descriptions of surroundings, enhancing understanding and navigation in unfamiliar environments, or when needing to admire scenes or artwork etc.
+-   **Object Detection**: Utilizes advanced image recognition to help users identify objects and their attributes with speed and accuracy.
 
 ## Exploring Image and Video Captioning with Salesforce's BLIP
 
@@ -87,6 +83,8 @@ BLIP is designed for learning visual representations by pretraining on a large-s
 ### Output
 
 BLIP's response : "two cats laying on a on a pink blanket with remote controls on the back."
+
+Keep in mind that the model's responses can be configured to provide more or less detailed descriptions based on user preferences and requirements with the modification of the temperature parameter.
 
 ### Input
 
