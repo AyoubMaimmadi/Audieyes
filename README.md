@@ -62,10 +62,6 @@ Leveraging machine learning, Audieyes enhances its core functionalities, offerin
 
 The feasibility of Audieyes is supported by advancements in AI, machine learning, and sensor technologies, making its ambitious goals within reach.
 
-### Baseline Specification
-
-The baseline for Audieyes involves leveraging current best practices in AI and machine learning, with a focus on user-centered design and accessibility standards.
-
 ## Architectural Archetypes for Vision Captioning
 
 -   **Human-in-the-Loop (HITL) for Enhanced Accuracy**: In the context of vision captioning, HITL architecture ensures that human feedback is integral to the continuous improvement of caption accuracy and relevance. Meaning that users can request additional details to the generated captions, which are then used to refine the underlying AI models, ensuring that the system evolves to meet the diverse needs.
@@ -86,7 +82,7 @@ BLIP is designed for learning visual representations by pretraining on a large-s
 
 ### Input
 
-[](assets/cat.jpg)
+![](assets/cat.jpg)
 
 ### Output
 
@@ -94,7 +90,7 @@ BLIP's response : "two cats laying on a on a pink blanket with remote controls o
 
 ### Input
 
-[](assets/monkey.png)
+![](assets/monkey.png)
 
 ### Output
 
