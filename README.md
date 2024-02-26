@@ -1,5 +1,48 @@
 # Audieyes
 
+# Table of Contents
+
+1. [Introduction](#introduction)
+2. [Problem Statement](#problem-statement)
+3. [Objectives](#objectives)
+4. [Features and Functionality](#features-and-functionality)
+    - [Environment Description](#environment-description)
+    - [Object Detection](#object-detection)
+5. [Exploring Image and Video Captioning with Salesforce's BLIP](#exploring-image-and-video-captioning-with-salesforces-blip)
+    - [Potential for Video Captioning](#potential-for-video-captioning)
+6. [Business Case](#business-case)
+    - [Business Metrics](#business-metrics)
+7. [Business Value of Using ML](#business-value-of-using-ml)
+8. [Feasibility and Baseline Specification](#feasibility-and-baseline-specification)
+    - [Feasibility](#feasibility)
+9. [Architectural Archetypes for Vision Captioning](#architectural-archetypes-for-vision-captioning)
+    - [Human-in-the-Loop (HITL) for Enhanced Accuracy](#human-in-the-loop-hitl-for-enhanced-accuracy)
+    - [Privacy-First Design in Image Processing](#privacy-first-design-in-image-processing)
+    - [Autonomous Real-Time Captioning](#autonomous-real-time-captioning)
+    - [Integration with Broader Ecosystems for Comprehensive Support](#integration-with-broader-ecosystems-for-comprehensive-support)
+10. [BLIP: Bootstrapped Language Image Pretraining](#blip-bootstrapped-language-image-pretraining)
+    - [Model Card](#model-card)
+    - [Example of Input-Output Interaction](#example-of-input-output-interaction)
+    - [Data Utilization in BLIP](#data-utilization-in-blip)
+        - [Data Sources](#data-sources)
+11. [System Development Guidelines](#system-development-guidelines)
+    - [Experiment & Metadata Tracking with MLFlow](#experiment--metadata-tracking-with-mlflow)
+        - [Flexibility and Agnosticism](#flexibility-and-agnosticism)
+        - [Experiment Tracking and Model Versioning](#experiment-tracking-and-model-versioning)
+        - [Ease of Use and Learning Curve](#ease-of-use-and-learning-curve)
+        - [Scalability for Small to Medium-scale Deployments](#scalability-for-small-to-medium-scale-deployments)
+        - [Community and Ecosystem Support](#community-and-ecosystem-support)
+    - [Project Workflow](#project-workflow)
+        - [Project Planning and Setup](#project-planning-and-setup)
+        - [Data Management](#data-management)
+        - [Model Development](#model-development)
+        - [Model Training](#model-training)
+        - [Model Evaluation](#model-evaluation)
+        - [Model Deployment](#model-deployment)
+        - [Monitoring and Maintenance](#monitoring-and-maintenance)
+        - [Documentation and Collaboration](#documentation-and-collaboration)
+        - [Security and Compliance](#security-and-compliance)
+
 ## Introduction
 
 Welcome to Audieyes, a groundbreaking project designed to empower the visually impaired community through innovative technology. Audieyes represents a leap forward in accessibility, offering a suite of features that promise to enhance autonomy, safety, and quality of life for its users. Inspired by a commitment to inclusivity and the transformative potential of technology, Audieyes aims to bridge the gap between the world's visual challenges and the possibilities afforded by digital innovation.
@@ -72,13 +115,13 @@ The feasibility of Audieyes is supported by advancements in AI, machine learning
 
 ## Model Card
 
-BLIP is designed for learning visual representations by pretraining on a large-scale dataset combining images and textual annotations. This approach allows the model to understand complex visual concepts and their associations with textual descriptions, enhancing its performance in tasks such as image captioning, visual question answering, and more. You can find the model card on Huggingface ([here](https://huggingface.co/Salesforce/blip-image-captioning-large)). The research paper for BLIP can be found here: [BLIP Research Paper](BLIP.pdf)
+BLIP is designed for learning visual representations by pretraining on a large-scale dataset combining images and textual annotations. This approach allows the model to understand complex visual concepts and their associations with textual descriptions, enhancing its performance in tasks such as image captioning, visual question answering, and more. You can find the model card on Huggingface ([here](https://huggingface.co/Salesforce/blip-image-captioning-large)). The research paper for BLIP can be found here: [BLIP Research Paper](/Audieyes/references/BLIP.pdf)
 
 ## Example of Input-Output Interaction
 
 ### Input
 
-![](assets/cat.jpg)
+![](assets/images/cat.jpg)
 
 ### Output
 
@@ -88,7 +131,7 @@ Keep in mind that the model's responses can be configured to provide more or les
 
 ### Input
 
-![](assets/monkey.png)
+![](assets/images/monkey.png)
 
 ### Output
 
@@ -104,3 +147,74 @@ BLIP's training involves diverse data sources, including but not limited to:
 
 -   **Public Datasets:** Utilizes widely recognized datasets in the AI community, ensuring a rich variety of visual and textual content.
 -   **Web-Sourced Data:** Employs data extracted from the internet, adhering to ethical guidelines and privacy standards, to broaden its understanding of real-world contexts and scenarios.
+
+# System Development Guidelines
+
+## Experiment & Metadata Tracking with MLFlow
+
+### Flexibility and Agnosticism
+
+-   **MLflow** allows you to work with various machine learning libraries, not just TensorFlow. This flexibility enables seamless integration of models from different frameworks, essential for combining image captioning and temporal modeling in your project.
+
+### Experiment Tracking and Model Versioning
+
+-   **MLflow** offers robust capabilities for experiment tracking and model versioning. Logging parameters, metrics, and artifacts for each experiment is streamlined, ensuring reproducibility and facilitating collaboration.
+
+### Ease of Use and Learning Curve
+
+-   **MLflow**'s simplicity and user-friendly interface make it suitable for teams with varying levels of expertise, streamlining the development and deployment process without a steep learning curve.
+
+### Scalability for Small to Medium-scale Deployments
+
+-   While TFX is designed for scalable, production-grade ML pipelines, **MLflow**'s lightweight nature is ideal for small to medium-scale deployments, particularly for projects deploying video captioning on resource-constrained devices like tiny cameras.
+
+### Community and Ecosystem Support
+
+-   With a growing community and support for integrations with popular machine learning libraries and platforms, **MLflow**'s capabilities can be extended through community-contributed plugins and extensions.
+
+## Project Workflow
+
+### Project Planning and Setup
+
+-   **Practice:** Define project goals, requirements, and success metrics. Set up version control for your codebase.
+-   **Tools:** Use Jira for task tracking and Git with GitHub for version control and collaboration.
+
+### Data Management
+
+-   **Practice:** Collect, preprocess, and annotate your video dataset. Establish data versioning and quality monitoring processes.
+-   **Tools:** Use DVC or Pachyderm for data versioning and Labelbox or Supervisely for data annotation.
+
+### Model Development
+
+-   **Practice:** Experiment with different model architectures and hyperparameters. Track experiments and model performance.
+-   **Tools:** MLflow for experiment tracking and model management, and Jupyter Notebooks or PyCharm for development.
+
+### Model Training
+
+-   **Practice:** Automate model training pipelines. Monitor training runs for performance and resource usage.
+-   **Tools:** TensorFlow Extended (TFX) or Kubeflow for scalable model training, and Google Colab or AWS SageMaker for distributed training.
+
+### Model Evaluation
+
+-   **Practice:** Evaluate models using appropriate metrics. Perform A/B testing and cross-validation.
+-   **Tools:** MLflow for tracking evaluation metrics, and TensorBoard or Neptune.ai for visualization and analysis.
+
+### Model Deployment
+
+-   **Practice:** Package models for deployment. Implement CI/CD pipelines.
+-   **Tools:** Docker for containerization and Jenkins, GitLab CI/CD, or GitHub Actions for automated deployment.
+
+### Monitoring and Maintenance
+
+-   **Practice:** Monitor model performance and drift in production. Implement feedback loops for model retraining.
+-   **Tools:** Prometheus and Grafana for monitoring and Seldon Alibi Detect for anomaly detection. Automated retraining with Kubeflow Pipelines or Airflow.
+
+### Documentation and Collaboration
+
+-   **Practice:** Document code, processes, and decisions. Foster collaboration among team members.
+-   **Tools:** Confluence for documentation and Slack or Microsoft Teams for communication.
+
+### Security and Compliance
+
+-   **Practice:** Implement security best practices and ensure compliance with regulatory requirements.
+-   **Tools:** Anchore or Clair for container image scanning and AWS Control Tower or Google Cloud's Compliance Manager for compliance management.
