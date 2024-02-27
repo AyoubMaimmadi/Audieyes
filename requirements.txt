@@ -1,6 +1,5 @@
 mkdocs
 mkdocs-cinder
-cookiecutter
 torch
 pytest
 mlflow
