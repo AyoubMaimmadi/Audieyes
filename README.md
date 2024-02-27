@@ -125,7 +125,7 @@ BLIP is designed for learning visual representations by pretraining on a large-s
 
 ### Output
 
-BLIP's response : "two cats laying on a on a pink blanket with remote controls on the back."
+BLIP's response : "two cats laying on a pink blanket with remote controls on the back."
 
 Keep in mind that the model's responses can be configured to provide more or less detailed descriptions based on user preferences and requirements with the modification of the temperature parameter.
 
