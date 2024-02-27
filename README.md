@@ -176,45 +176,36 @@ BLIP's training involves diverse data sources, including but not limited to:
 
 ### Project Planning and Setup
 
--   **Practice:** Define project goals, requirements, and success metrics. Set up version control for our codebase.
--   **Tools:** Use Jira for task tracking and Git with GitHub for version control and collaboration.
+-   **To do:** We will use agile methodologies for project planning and management, ensuring flexibility and adaptability to changing requirements. Using Jira for task management and sprint planning will help keep the project on track.
 
 ### Data Management
 
--   **Practice:** Collect, preprocess, and annotate our video dataset. Establish data versioning and quality monitoring processes.
--   **Tools:** Use DVC or Pachyderm for data versioning and Labelbox or Supervisely for data annotation.
+-   **To do:** We will use DVC (Data Version Control) for versioning and managing large datasets, ensuring reproducibility and traceability of data used in model training. This will be essential for maintaining data integrity and tracking changes.
 
 ### Model Development
 
--   **Practice:** Experiment with different model architectures and hyperparameters. Track experiments and model performance.
--   **Tools:** MLflow for experiment tracking and model management, and Jupyter Notebooks or PyCharm for development.
+-   **To do:** We will use MLflow for experiment tracking and model versioning, enabling us to compare different model iterations and track performance metrics. This will help to ensure that we have the best model for our use case.
 
 ### Model Training
 
--   **Practice:** Automate model training pipelines. Monitor training runs for performance and resource usage.
--   **Tools:** TensorFlow Extended (TFX) or Kubeflow for scalable model training, and Google Colab or AWS SageMaker for distributed training.
+-   **To do:** We will re-train the model using new data to improve its performance and adapt it to specific use cases. This will involve fine-tuning the model and using transfer learning to leverage pre-trained models for faster convergence.
 
 ### Model Evaluation
 
--   **Practice:** Evaluate models using appropriate metrics. Perform A/B testing and cross-validation.
--   **Tools:** MLflow for tracking evaluation metrics, and TensorBoard or Neptune.ai for visualization and analysis.
+-   **To do:** We will use MLFlow to track model performance and evaluate its accuracy, precision, recall, and F1 score (combination btw precision and recall). This will help us understand how well the model is performing and identify areas for improvement.
 
 ### Model Deployment
 
--   **Practice:** Package models for deployment. Implement CI/CD pipelines.
--   **Tools:** Docker for containerization and Jenkins, GitLab CI/CD, or GitHub Actions for automated deployment.
+-   **To do:** We will use opt for TinyML for deploying the model on resource-constrained devices, ensuring that it can run efficiently on tiny edge devices. This will enable real-time image/video captioning on devices like tiny cameras, enhancing accessibility for visually impaired users.
 
 ### Monitoring and Maintenance
 
--   **Practice:** Monitor model performance and drift in production. Implement feedback loops for model retraining.
--   **Tools:** Prometheus and Grafana for monitoring and Seldon Alibi Detect for anomaly detection. Automated retraining with Kubeflow Pipelines or Airflow.
+-   **To do:** We will use MLflow to monitor model performance and track any drift in model accuracy over time. This will help us identify when the model needs retraining and ensure that it continues to perform optimally.
 
 ### Documentation and Collaboration
 
--   **Practice:** Document code, processes, and decisions. Foster collaboration among team members.
--   **Tools:** Confluence for documentation and Slack or Microsoft Teams for communication.
+-   **To do:** We will generate documentation using Sphinx and Read the Docs, ensuring that the project is well-documented from the explainability perspective for potential users and contributors.
 
 ### Security and Compliance
 
--   **Practice:** Implement security best practices and ensure compliance with regulatory requirements.
--   **Tools:** Anchore or Clair for container image scanning and AWS Control Tower or Google Cloud's Compliance Manager for compliance management.
+-   **To do:** We will ensure that the project adheres to data privacy and security standards, implementing encryption and access controls to protect user data.
