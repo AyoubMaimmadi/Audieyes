@@ -14,3 +14,4 @@ torch
 requests
 PIL
 transformers
+dvc-gs
