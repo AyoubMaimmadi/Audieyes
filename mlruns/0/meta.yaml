@@ -1,6 +1,7 @@
 artifact_location: file:///C:/Users/Ayoub%20Maimmadi/Documents/AUI/Asmae%20Mourhir/Audieyes/mlruns/0
 creation_time: 1709026591878
 experiment_id: '0'
-last_update_time: 1709026591878
+last_update_time: 1709037768512
 lifecycle_stage: active
-name: Default
+name: Initial
+tags: {}
