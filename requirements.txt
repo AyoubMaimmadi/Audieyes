@@ -1,4 +1,17 @@
 mkdocs
 mkdocs-cinder
 cookiecutter
+torch
 pytest
+mlflow
+sciskit-learn
+hyperopt
+pandas
+numpy
+keras
+logging
+warnings
+torch
+requests
+PIL
+transformers
