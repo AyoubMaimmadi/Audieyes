@@ -154,7 +154,7 @@ BLIP's training involves diverse data sources, including but not limited to:
 
 ### Flexibility and Agnosticism
 
--   **MLflow** allows you to work with various machine learning libraries, not just TensorFlow. This flexibility enables seamless integration of models from different frameworks, essential for combining image captioning and temporal modeling in your project.
+-   **MLflow** allows you to work with various machine learning libraries, not just TensorFlow. This flexibility enables seamless integration of models from different frameworks, essential for combining image captioning and temporal modeling in our project.
 
 ### Experiment Tracking and Model Versioning
 
@@ -176,12 +176,12 @@ BLIP's training involves diverse data sources, including but not limited to:
 
 ### Project Planning and Setup
 
--   **Practice:** Define project goals, requirements, and success metrics. Set up version control for your codebase.
+-   **Practice:** Define project goals, requirements, and success metrics. Set up version control for our codebase.
 -   **Tools:** Use Jira for task tracking and Git with GitHub for version control and collaboration.
 
 ### Data Management
 
--   **Practice:** Collect, preprocess, and annotate your video dataset. Establish data versioning and quality monitoring processes.
+-   **Practice:** Collect, preprocess, and annotate our video dataset. Establish data versioning and quality monitoring processes.
 -   **Tools:** Use DVC or Pachyderm for data versioning and Labelbox or Supervisely for data annotation.
 
 ### Model Development
