@@ -8,10 +8,10 @@ hyperopt
 pandas
 numpy
 keras
-logging
 warnings
 torch
 requests
 PIL
 transformers
 dvc-gs
+logger
