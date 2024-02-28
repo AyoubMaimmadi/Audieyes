@@ -11,7 +11,6 @@ import transformers
 transformers.logging.set_verbosity_error()
 
 import torch
-import logger
 from torch import nn
 import torch.nn.functional as F
 
