@@ -150,7 +150,7 @@ BLIP's training involves diverse data sources, including but not limited to:
 data example:
 
 ```json
-    {
+    [{
         "image": "flickr30k-images/1007129816.jpg",
         "caption": [
             "The man with pierced ears is wearing glasses and an orange hat.",
@@ -179,7 +179,7 @@ data example:
             "A girl in karate uniform breaking a stick with a front kick.",
             "A girl breaking boards by using karate."
         ]
-    },
+    }],
 ```
 
 # System Development Guidelines
