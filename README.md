@@ -145,8 +145,42 @@ The BLIP model (Bootstrapped Language Image Pre-training) leverages a comprehens
 
 BLIP's training involves diverse data sources, including but not limited to:
 
--   **Public Datasets:** Utilizes widely recognized datasets in the AI community, ensuring a rich variety of visual and textual content.
--   **Web-Sourced Data:** Employs data extracted from the internet, adhering to ethical guidelines and privacy standards, to broaden its understanding of real-world contexts and scenarios.
+-   **Public Datasets:** Utilizes widely recognized datasets in the AI community, ensuring a rich variety of visual and textual content. Datasets include but are not limited to: [COCO](https://storage.googleapis.com/sfr-vision-language-research/datasets/coco_karpathy_train.json), [flickr30k](https://storage.googleapis.com/sfr-vision-language-research/datasets/flickr30k_test.json), [vqa](https://storage.googleapis.com/sfr-vision-language-research/datasets/vqa_train.json), and [nlvr](https://storage.googleapis.com/sfr-vision-language-research/datasets/nlvr_train.json).
+
+data example:
+
+```json
+    [{
+        "image": "flickr30k-images/1007129816.jpg",
+        "caption": [
+            "The man with pierced ears is wearing glasses and an orange hat.",
+            "A man with glasses is wearing a beer can crocheted hat.",
+            "A man with gauges and glasses is wearing a Blitz hat.",
+            "A man in an orange hat starring at something.",
+            "A man wears an orange hat and glasses."
+        ]
+        },
+        {
+        "image": "flickr30k-images/1009434119.jpg",
+        "caption": [
+            "A black and white dog is running in a grassy garden surrounded by a white fence.",
+            "A Boston Terrier is running on lush green grass in front of a white fence.",
+            "A black and white dog is running through the grass.",
+            "A dog runs on the green grass near a wooden fence.",
+            "A Boston terrier is running in the grass."
+        ]
+        },
+        {
+        "image": "flickr30k-images/101362133.jpg",
+        "caption": [
+            "A young female student performing a downward kick to break a board held by her Karate instructor.",
+            "Girl about to kick a piece of wood in half while karate instructor holds it",
+            "A girl kicking a stick that a man is holding in tae kwon do class.",
+            "A girl in karate uniform breaking a stick with a front kick.",
+            "A girl breaking boards by using karate."
+        ]
+    }],
+```
 
 # System Development Guidelines
 
