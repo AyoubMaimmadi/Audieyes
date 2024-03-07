@@ -243,3 +243,37 @@ data example:
 ### Security and Compliance
 
 -   **To do:** We will ensure that the project adheres to data privacy and security standards, implementing encryption and access controls to protect user data.
+
+# Milestone 3: AI System Development (2/3)
+
+## Goal: Data Preparation and Validation
+
+In this milestone, we focus on the critical stage of data preparation and validation, ensuring the quality and integrity of the data that feeds into Audieyes' AI systems. This process is foundational to developing robust and reliable AI models capable of fulfilling our mission to enhance accessibility for the visually impaired community.
+
+### Data Validation and Verification
+
+**Library Used: Great Expectations**
+
+For data validation and verification, we have chosen Great Expectations, a powerful tool that allows for comprehensive data testing, documentation, and profiling. This library stands out for its ability to adapt to various data forms and its extensive community support. The decision to utilize Great Expectations is driven by its flexibility and the non-TensorFlow-centric nature of some of our data processing tasks.
+
+**Implementation Strategy**:
+
+1. **Schema Inference and Validation**: We will use Great Expectations to automatically infer the data schema, ensuring that our datasets adhere to expected formats and types. This step is crucial for establishing a strong foundation for data quality.
+2. **Data Profiling and Anomaly Detection**: Through statistical analysis, we will profile our datasets to understand their characteristics and detect any anomalies or outliers that could impact model performance.
+
+3. **Anomaly Resolution and Schema Revision**: Identified anomalies will be addressed through preprocessing steps or schema adjustments, ensuring our data is accurately represented and reliable.
+
+### Data Pipeline Setup
+
+**Feature Store Integration: Feast**
+
+To streamline and enhance our data pipeline, we will integrate Feast as our feature store. Feast offers a seamless way to manage, store, and retrieve features for our ML models, ensuring that our data processing is efficient and scalable. This choice is motivated by Feast's open-source nature, its compatibility with various data sources and ML frameworks, and its strong community support.
+
+**Implementation Strategy**:
+
+1. **Preprocessing and Feature Engineering**: We will leverage Feast to implement preprocessing and feature engineering functions, enabling consistent and reusable data transformations across our ML models.
+2. **Feature Management**: Feast will be used to manage feature definitions and serve as the single source of truth for features used across all models, improving data quality and model reproducibility.
+
+3. **Integration with ML Pipeline**: We will integrate Feast within our broader ML pipeline, ensuring that feature retrieval and management are seamlessly incorporated into the model training and deployment processes.
+
+By meticulously addressing data preparation and validation, and by setting up a robust data pipeline with Great Expectations and Feast, we lay a strong foundation for the development of AI systems within Audieyes. This approach not only enhances the reliability and effectiveness of our models but also aligns with our commitment to providing innovative solutions for the visually impaired community.
