@@ -252,7 +252,7 @@ In this milestone, we focus on the critical stage of data preparation and valida
 
 ### Data Validation and Verification
 
-**Library Used: Great Expectations**
+**Library Used: Great Expectations** View the code [here](/Audieyes/validation/greate_expectation_validation.py)
 
 For data validation and verification, we have chosen Great Expectations, a powerful tool that allows for comprehensive data testing, documentation, and profiling. This library stands out for its ability to adapt to various data forms and its extensive community support. The decision to utilize Great Expectations is driven by its flexibility and the non-TensorFlow-centric nature of some of our data processing tasks.
 
@@ -276,4 +276,4 @@ To streamline and enhance our data pipeline, we will integrate Feast as our feat
 
 3. **Integration with ML Pipeline**: We will integrate Feast within our broader ML pipeline, ensuring that feature retrieval and management are seamlessly incorporated into the model training and deployment processes.
 
-By meticulously addressing data preparation and validation, and by setting up a robust data pipeline with Great Expectations and Feast, we lay a strong foundation for the development of AI systems within Audieyes. This approach not only enhances the reliability and effectiveness of our models but also aligns with our commitment to providing innovative solutions for the visually impaired community.
+This proccess is done in a virtual environment, and the code is written in Python. The data is stored in a cloud storage service, and the data is processed using the Pandas library. The data is then validated and verified using the Great Expectations library. The data is then stored in a feature store using the Feast library. The data is then used to train and deploy the model using the MLflow library. This is because a specific dependency (gunicorn) that Feast uses, which is not compatible with Windows because it requires the fcntl module, available only on Unix-like operating systems.

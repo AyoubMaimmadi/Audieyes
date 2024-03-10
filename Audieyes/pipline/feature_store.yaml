@@ -1,0 +1,13 @@
+project: my_feast_project
+registry: data/registry.db
+provider: local
+online_store:
+    path: data/online_store.db
+entities:
+    - name: image_id
+      value_type: INT64
+      description: 'Unique identifier for an image.'
+features:
+    - name: caption
+      value_type: STRING
+      description: 'Caption describing the image.'
