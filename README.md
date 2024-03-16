@@ -266,15 +266,12 @@ For data validation and verification, we have chosen Great Expectations, a power
 
 ### Data Pipeline Setup
 
-**Feature Store Integration: Feast**
+**Feature Store Integration: Apache Cassandra**
 
-To streamline and enhance our data pipeline, we will integrate Feast as our feature store. Feast offers a seamless way to manage, store, and retrieve features for our ML models, ensuring that our data processing is efficient and scalable. This choice is motivated by Feast's open-source nature, its compatibility with various data sources and ML frameworks, and its strong community support.
+For managing and serving features to our AI models, we have chosen Apache Cassandra as our feature store. This decision is driven by Cassandra's scalability, fault tolerance, and high availability, making it an ideal choice for handling large volumes of feature data.
 
-**Implementation Strategy**:
+1. **Preprocessing and Feature Engineering**: We will preprocess and engineer features from our raw data, transforming them into a format suitable for ingestion into the feature store.
 
-1. **Preprocessing and Feature Engineering**: We will leverage Feast to implement preprocessing and feature engineering functions, enabling consistent and reusable data transformations across our ML models.
-2. **Feature Management**: Feast will be used to manage feature definitions and serve as the single source of truth for features used across all models, improving data quality and model reproducibility.
+2. **Feature Management**: Features will be stored in Apache Cassandra, allowing for efficient retrieval and serving to our AI models.
 
-3. **Integration with ML Pipeline**: We will integrate Feast within our broader ML pipeline, ensuring that feature retrieval and management are seamlessly incorporated into the model training and deployment processes.
-
-This proccess is done in a virtual environment. The data is validated and verified using the Great Expectations library. The data is then stored in a feature store using the Feast library. The data is then used to train and deploy the model using the MLflow library. This is because a specific dependency (gunicorn) that Feast uses, which is not compatible with Windows because it requires the fcntl module, available only on Unix-like operating systems.
+3. **Integration with ML Pipeline**: The feature store will be integrated into our ML pipeline, ensuring that our models have access to the latest feature data for training and inference.
