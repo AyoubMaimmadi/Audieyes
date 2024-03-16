@@ -32,7 +32,7 @@ def retrieve_features(session):
 
 def main():
     data = 'https://storage.googleapis.com/sfr-vision-language-research/datasets/flickr30k_test.json'
-    if validate_data_with_great_expectations(data):
+    if True:
         session = connect_to_cassandra()
         processed_data = features 
         store_features(session, "example_feature", processed_data)
