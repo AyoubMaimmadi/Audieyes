@@ -253,7 +253,7 @@ In this milestone, we focus on the critical stage of data preparation and valida
 
 ### Data Validation and Verification
 
-**Library Used: Great Expectations** View the code [here](/Audieyes/validation/greate_expectation_validation.py)
+**Library Used: Great Expectations** View the code [here](/Audieyes/validation/greate_expectation_validation.ipynb)
 
 For data validation and verification, we have chosen Great Expectations, a powerful tool that allows for comprehensive data testing, documentation, and profiling. This library stands out for its ability to adapt to various data forms and its extensive community support. The decision to utilize Great Expectations is driven by its flexibility and the non-TensorFlow-centric nature of some of our data processing tasks.
 
