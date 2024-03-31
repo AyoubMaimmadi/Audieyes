@@ -43,6 +43,10 @@
         - [Documentation and Collaboration](#documentation-and-collaboration)
         - [Security and Compliance](#security-and-compliance)
 12. [Milestone 3: AI System Development (2/3)](#milestone-3-ai-system-development-23)
+13. [Milestone 4: ML pipeline development and testing](#milestone-4-ml-pipeline-development-and-testing)
+    - [1- Goal: ML Pipeline Development and Testing using ZenML](#1--goal-ml-pipeline-development-and-testing-using-zenml)
+        - [Key Components of the ML Pipeline](#key-components-of-the-ml-pipeline)
+    - [2 - Behavioural model tests](#2---behavioural-model-tests)
 
 ## Introduction
 
@@ -275,3 +279,37 @@ For managing and serving features to our AI models, we have chosen Apache Cassan
 2. **Feature Management**: Features will be stored in Apache Cassandra, allowing for efficient retrieval and serving to our AI models.
 
 3. **Integration with ML Pipeline**: The feature store will be integrated into our ML pipeline, ensuring that our models have access to the latest feature data for training and inference.
+
+# Milestone 4: ML pipeline development and testing
+
+## 1- Goal: ML Pipeline Development and Testing using ZenML
+
+I have used ZenML for developing and testing the ML pipeline. ZenML is an open-source MLOps framework that simplifies the end-to-end machine learning lifecycle, from data ingestion to model deployment. It provides a structured and scalable approach to ML pipeline development, enabling reproducibility, collaboration, and automation.
+
+### Key Components of the ML Pipeline
+
+0. **Data Validation**: the pipeline validates the raw data to ensure its quality and integrity before ingestion. Check the code [here](/Audieyes/zemML/pipelines/validation/greate_expectation_validation.ipynb)
+
+1. **Data Ingestion**: the pipeline ingests raw data from various json sources, including image and text datasets, and preprocesses them for model training. Check the code [here](/Audieyes/zemML/pipelines/src/data/__init__.py)
+
+2. **Data Splitting**: the pipeline splits the preprocessed data into training and validation sets, ensuring that the model is trained on a representative sample of the data. check at line 59 [here](/Audieyes/zemML/pipelines/src/data/coco_karpathy_dataset.py)
+
+3. **Model checkpoint Training**: the pipeline trains the image captioning model using the preprocessed data, leveraging the BLIP model for image captioning. check an example checkpoint [here](/Audieyes/zemML/pipelines/src/models/blip_nlvr.py)
+
+4. **Model Evaluation**: the pipeline evaluates the trained model on the validation set, assessing its performance and identifying areas for improvement. check the evaluation example at line 39 [here](/Audieyes/zemML/pipelines/src/data/__init__.py)
+
+## 2 - Behavioural model tests
+
+I have used GitHub Actions for running behavioural model tests. These tests validate the functionality and performance of the image captioning model, ensuring that it meets the specified requirements and quality standards. The tests are executed automatically whenever changes are made to the model codebase, providing continuous feedback on the model's behavior and performance.
+
+1. **Model checkpoints Test**: the test checks that the model checkpoints are generated correctly and contain the expected parameters and metadata. check the test [here](/Audieyes/zemML/tests/checkpoints_tests.py)
+
+#### example of a test result:
+
+![](assets/images/test2.png)
+
+2. **Business Metrics Test**: the test evaluates the model's performance against predefined business metrics, such as operational efficiency, revenue and more. check the test [here](/Audieyes/zemML/tests/metrics_tests.py)
+
+#### example of a test result:
+
+![](assets/images/test1.png)
