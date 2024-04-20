@@ -32,7 +32,6 @@ BLIP Image Captioning API is a powerful and easy-to-use API that generates descr
 3. Easy Image Upload: The API allows users to upload images via a simple HTTP POST request, making it convenient to integrate image captioning functionality into various applications.
 4. Conditional Image Captioning: In addition to generating captions based solely on the image content, the API supports conditional image captioning. Users can provide an optional text input along with the image to guide the caption generation process.
 5. Containerization with Docker: The project is containerized using Docker, ensuring a consistent and reproducible environment for running the API. Docker simplifies the deployment process and makes it easy to scale the application.
-6. Comprehensive Documentation: The repository includes detailed documentation on how to set up, run, and interact with the image captioning API. It provides step-by-step instructions, code examples, and explanations of the project's architecture and components.
 
 ## Installation
 
