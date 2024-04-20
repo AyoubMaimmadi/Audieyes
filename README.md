@@ -47,6 +47,11 @@
     - [1- Goal: ML Pipeline Development and Testing using ZenML](#1--goal-ml-pipeline-development-and-testing-using-zenml)
         - [Key Components of the ML Pipeline](#key-components-of-the-ml-pipeline)
     - [2 - Behavioural model tests](#2---behavioural-model-tests)
+14. [Milestone 5: Model Deployment](#milestone-5-model-deployment)
+    - [1- ML system architecture](#1--ml-system-architecture)
+    - [2- Packaging and containerization](#2--packaging-and-containerization)
+    - [3- ML service deployment, and Model serving](#3--ml-service-deployment-and-model-serving)
+    - [4- Fron-end client](#4--fron-end-client)
 
 ## Introduction
 
@@ -381,3 +386,7 @@ I have used Docker for packaging and containerization, FastAPI for ML service de
 ### API Response
 
 ![](assets/images/blip_resp.png)
+
+## 4- Fron-end client
+
+I have used React for developing the front-end client, enabling users to interact with the image captioning model through an intuitive and user-friendly interface. The client communicates with the ML service via APIs, providing real-time captioning for images uploaded by users.
