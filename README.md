@@ -313,3 +313,59 @@ I have used GitHub Actions for running behavioural model tests. These tests vali
 #### example of a test result:
 
 ![](assets/images/test1.png)
+
+# Milestone 5: Model Deployment
+
+## 1- ML system architecture
+
+```txt
++-----------------------------------+
+|          User Interface           |
+|  (Web, Mobile App, API Endpoint)  |
++----------------+------------------+
+                 |
+                 v
++-----------------------------------+
+|      Application Backend          |
+| (Business Logic, User Management) |
++----------------+------------------+
+                 |
+                 v
++-----------------------------------+
+|         ML Service Layer          |
+| (APIs for Model Interaction)      |
++--------+------------+-------------+
+         |            |
+         v            v
++--------+------+  +--+-------------+
+|  Data Storage |  | Model Training |
+| (Databases,   |  | and Evaluation |
+|  Data Lakes)  |  | (GPU Servers)  |
++---------------+  +----------------+
+         |                 |
+         |                 |
+         v                 v
++--------+----------+ +---+---------+
+|  Data Preparation | | BLIP Model  |
+|  and Annotation   | | (Deployed)  |
+|  (ETL Processes)  | +-------------+
++-------------------+
+         |
+         v
++--------+------+
+|  Feature      |
+|  Engineering  |
+|  and Selection|
++---------------+
+         |
+         v
++--------+------+
+| Pretrained    |
+| Models for    |
+| Feature Ext.  |
++---------------+
+```
+
+## 2- Packaging and containerization
+
+I have used Docker for packaging and containerizing the image captioning model. Docker provides a lightweight, portable container that encapsulates the model and its dependencies, ensuring consistent behavior across different environments. The containerized model can be easily deployed on various platforms, making it accessible to a wide range of users. View details [Docker Containerization README.md](Audieyes\docker\README.md)
