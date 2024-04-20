@@ -368,11 +368,11 @@ I have used GitHub Actions for running behavioural model tests. These tests vali
 
 ## 2- Packaging and containerization
 
-I have used Docker for packaging and containerizing the image captioning model. Docker provides a lightweight, portable container that encapsulates the model and its dependencies, ensuring consistent behavior across different environments. The containerized model can be easily deployed on various platforms, making it accessible to a wide range of users. View details [Docker Containerization](/Audieyes/docker/README.md)
+I have used Docker for packaging and containerizing the image captioning model. Docker provides a lightweight, portable container that encapsulates the model and its dependencies, ensuring consistent behavior across different environments. The containerized model can be easily deployed on various platforms, making it accessible to a wide range of users. View details [Docker_Containerization](/Audieyes/docker/README.md)
 
 ## 3- ML service deployment, and Model serving
 
-I have used Docker for packaging and containerization, FastAPI for ML service deployment, and Hugging Face Transformers for model serving. This architecture ensures that the image captioning model is deployed as a scalable and efficient service, accessible via APIs for real-time inference. [Docker deployment](/Audieyes/app/README.md)
+I have used Docker for packaging and containerization, FastAPI for ML service deployment, and Hugging Face Transformers for model serving. This architecture ensures that the image captioning model is deployed as a scalable and efficient service, accessible via APIs for real-time inference. [Docker_Deployment](/Audieyes/app/README.md)
 
 ### API Input Using Swagger UI
 
