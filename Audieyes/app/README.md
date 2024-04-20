@@ -1,6 +1,6 @@
 # BLIP Image Captioning API
 
-BLIP Image Captioning API is a powerful and easy-to-use API that generates descriptive captions for images using the BLIP (Bootstrapping Language-Image Pre-training).
+BLIP Image Captioning API is a powerful and easy-to-use API that generates descriptive captions for images using the BLIP (Bootstrapping Language-Image Pre-training), the deployed model on Hugging Face.
 
 ## Table of Contents
 
