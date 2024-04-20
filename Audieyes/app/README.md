@@ -21,7 +21,7 @@ BLIP Image Captioning API is a powerful and easy-to-use API that generates descr
 
 -   🖼️ Generate captions for images automatically
 -   📝 Support for conditional image captioning with optional text input
--   🚀 Easy integration with FastAPI and Hugging Face Transformers
+-   🚀 Easy integration with [FastAPI](https://fastapi.tiangolo.com/) and Hugging Face Transformers
 -   🐳 Containerization with Docker for easy deployment and scalability
 -   📖 Comprehensive documentation and code examples
 
@@ -152,17 +152,3 @@ The architecture of the BLIP Image Captioning API can be represented using the f
 |     Client      |
 +-----------------+
 ```
-
-## Contributing
-
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
-
-## Acknowledgements
-
--   [FastAPI](https://fastapi.tiangolo.com/)
--   [Hugging Face Transformers](https://huggingface.co/docs/transformers/index)
--   [BLIP Model](https://huggingface.co/Salesforce/blip-image-captioning-large)
