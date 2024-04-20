@@ -373,3 +373,11 @@ I have used Docker for packaging and containerizing the image captioning model. 
 ## 3- ML service deployment, and Model serving
 
 I have used Docker for packaging and containerization, FastAPI for ML service deployment, and Hugging Face Transformers for model serving. This architecture ensures that the image captioning model is deployed as a scalable and efficient service, accessible via APIs for real-time inference. [Docker deployment](Audieyes\app\README.md)
+
+### API Input Using Swagger UI
+
+![](assets/images/Blip_API.png)
+
+### API Response
+
+![](assets/images/blip_resp.png)
