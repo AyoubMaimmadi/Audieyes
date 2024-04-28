@@ -63,7 +63,7 @@ To generate a caption for an image, send a `POST` request to the `/caption` endp
 Example using cURL:
 
 ```bash
-curl -X POST -F "image=@path/to/image.jpg" -F "text=optional text input" http://localhost:8000/caption
+curl -X POST -F "image=@path/to/image.jpg" -F "text=optional text input" http://localhost:5000/after
 ```
 
 ### Response
