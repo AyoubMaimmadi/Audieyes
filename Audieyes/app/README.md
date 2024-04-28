@@ -43,7 +43,7 @@ BLIP Image Captioning API is a powerful and easy-to-use API that generates descr
     docker run -p 8000:8000 blip-image-captioning-api
     ```
 
-    The API will be accessible at `http://localhost:8000`.
+    The API will be accessible at `http://localhost:5000`.
 
 ## Usage
 
@@ -51,7 +51,7 @@ BLIP Image Captioning API is a powerful and easy-to-use API that generates descr
 
 The API provides a single endpoint for generating image captions:
 
--   `POST /caption`: Generate a caption for an image.
+-   `POST /after`: Generate a caption for an image.
 
 ### Request
 
