@@ -4,23 +4,23 @@ An Image captioning web application combines the power of React.js for front-end
 
 # Home Page
 
-![](/assets/home.png)
+![](./assets/home.png)
 
 # Upload page
 
-![](/assets/uplaod.png)
+![](./assets/uplaod.png)
 
 # Result Page
 
-![](/assets/result.png)
+![](./assets/result.png)
 
 # Login Page
 
-![](/assets/login.png)
+![](./assets/login.png)
 
 # Signup page
 
-![](/assets/signup.png)
+![](./assets/signup.png)
 
 ## How to Run the Project
 
