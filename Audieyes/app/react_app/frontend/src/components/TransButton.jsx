@@ -1,11 +1,12 @@
 import React from 'react'
 import { useEffect, useState, useRef } from 'react'
-import axios from 'axios' // Import axios
+import axios from 'axios'
+import qs from 'qs'
 
 const TransButton = ({ callback, cap }) => {
     const [languageOptions, setLanguageOptions] = useState([
         { code: 'en', name: 'English' },
-        { code: 'fr-ca', name: 'French' },
+        { code: 'fr', name: 'French' },
         { code: 'ar', name: 'Arabic' }
     ])
     const [to, setTo] = useState('en')
@@ -13,25 +14,27 @@ const TransButton = ({ callback, cap }) => {
     const prevTo = useRef(to)
 
     const handleTranslate = async () => {
+        const formData = qs.stringify({
+            text: cap,
+            from: 'auto',
+            to: to
+        })
+
         const options = {
             method: 'POST',
-            url: 'https://google-translate1.p.rapidapi.com/language/translate/v2',
+            url: 'https://google-translate113.p.rapidapi.com/api/v1/translator/text',
             headers: {
-                'content-type': 'application/json',
+                'content-type': 'application/x-www-form-urlencoded',
                 'X-RapidAPI-Key': 'd7331607admsh485c5bb480c8e52p1af2dfjsn2678b2dc3378',
-                'X-RapidAPI-Host': 'google-translate1.p.rapidapi.com'
+                'X-RapidAPI-Host': 'google-translate113.p.rapidapi.com'
             },
-            data: JSON.stringify({
-                q: cap,
-                source: 'en',
-                target: to
-            })
+            data: formData
         }
 
         for (let attempt = 0; attempt < 3; attempt++) {
             try {
                 const response = await axios.request(options)
-                if (response.data) {
+                if (response.data && response.data.data.translations) {
                     const result = response.data.data.translations[0].translatedText
                     callback(result)
                     return // Exit after successful response
