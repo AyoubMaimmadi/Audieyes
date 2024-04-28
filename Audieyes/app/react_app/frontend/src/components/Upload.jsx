@@ -65,7 +65,7 @@ const ImageCaptionGenerator = () => {
                             <div className='rightbar'>
                                 {localStorage.getItem('token') ? <h1 className='heading'>Hello {name}</h1> : <h1 className='heading'>Welcome to VocPix</h1>}
 
-                                <h5 style={{ color: 'black', fontSize: '16px' }}>
+                                <h5 style={{ color: 'black', fontSize: '20px' }}>
                                     Let Images Speak <br />
                                     Upload an Image to Generate Captivating Captions!
                                 </h5>

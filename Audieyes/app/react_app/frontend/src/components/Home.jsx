@@ -1,8 +1,5 @@
 import React from 'react'
 import styles from '../styles.module.css'
-import projLogoVideo from '../videos/proj_logo.mp4'
-import projectLogoVideo from '../videos/project_logo.mp4'
-import catImage from '../background/cat.png'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
