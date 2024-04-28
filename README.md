@@ -389,4 +389,4 @@ I have used Docker for packaging and containerization, FastAPI for ML service de
 
 ## 4- Fron-end client
 
-I have used React for developing the front-end client, enabling users to interact with the image captioning model through an intuitive and user-friendly interface. The client communicates with the ML service via APIs, providing real-time captioning for images uploaded by users.
+I have used React for developing the front-end client, enabling users to interact with the image captioning model through an intuitive and user-friendly interface. The client communicates with the ML service via APIs, providing real-time captioning for images uploaded by users. [React_Frontend_Details](/Audieyes/app/react_app/README.md)
