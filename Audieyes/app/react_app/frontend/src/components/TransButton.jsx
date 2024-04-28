@@ -10,6 +10,7 @@ const TransButton = ({ callback, cap }) => {
         { code: 'ar', name: 'Arabic' }
     ])
     const [to, setTo] = useState('en')
+    const [translation, setTranslation] = useState('')
 
     const prevTo = useRef(to)
 
@@ -34,10 +35,10 @@ const TransButton = ({ callback, cap }) => {
         for (let attempt = 0; attempt < 3; attempt++) {
             try {
                 const response = await axios.request(options)
-                if (response.data && response.data.data.translations) {
-                    const result = response.data.data.translations[0].translatedText
-                    callback(result)
-                    return // Exit after successful response
+                if (response.data && response.data.trans) {
+                    setTranslation(response.data.trans)
+                    callback(response.data.trans)
+                    return
                 }
             } catch (error) {
                 console.error('Translation error:', error.message)
@@ -77,6 +78,7 @@ const TransButton = ({ callback, cap }) => {
                 <button className='translate-btn' onClick={handleTranslate}>
                     Translate
                 </button>
+                {/* {translation && <div className='translation-result'>{translation}</div>} */}
             </div>
         </>
     )
