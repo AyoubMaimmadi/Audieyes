@@ -55,7 +55,7 @@ The API provides a single endpoint for generating image captions:
 
 ### Request
 
-To generate a caption for an image, send a `POST` request to the `/caption` endpoint with the following parameters:
+To generate a caption for an image, send a `POST` request to the `/after` endpoint with the following parameters:
 
 -   `image` (required): The image file to generate a caption for. The image should be sent as a multipart form data.
 -   `text` (optional): An optional text input to guide the caption generation process. This can be used for conditional image captioning.
