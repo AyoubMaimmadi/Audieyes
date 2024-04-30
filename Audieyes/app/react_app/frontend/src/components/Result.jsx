@@ -30,6 +30,7 @@ const Result = (props) => {
         // console.log("hi");
         try {
             const url = `http://localhost:5000/after`
+            // const url = `http://127.0.0.1:5000/after`
             const response = await fetch(url, {
                 method: 'Post',
                 body: formData
