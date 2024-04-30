@@ -1,13 +1,13 @@
-FROM python:3.8-slim
+FROM python:3.9-slim
 
-WORKDIR /server
+WORKDIR /app
 
-COPY . .
+COPY . /app
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir flask flask-cors pillow transformers
 
 EXPOSE 5000
 
-ENV NAME ImageCaptioning
+ENV NAME World
 
 CMD ["python", "app.py"]
