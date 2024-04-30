@@ -25,25 +25,27 @@ BLIP Image Captioning API is a powerful and easy-to-use API that generates descr
 
 ## Installation
 
-1. Navigate to the project directory:
+1.  Navigate to the project directory:
 
     ```bash
     cd Audieyes\app\app
     ```
 
-2. Build the Docker image:
+2.  Build the Docker image:
 
     ```bash
     docker build -t blip-image-captioning-api .
     ```
 
-3. Run the Docker container:
+3.  Run the Docker container:
 
-    ```bash
-    docker run -p 8000:8000 blip-image-captioning-api
-    ```
+        ```bash
 
-    The API will be accessible at `http://localhost:5000`.
+    docker run -d -t -p 80:80 --name my-ayoub-api ayoubmaimmadi/image-captioning-api
+
+        ```
+
+        The API will be accessible at `http://localhost:5000`.
 
 ## Usage
 
