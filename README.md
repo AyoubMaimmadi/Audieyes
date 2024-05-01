@@ -397,7 +397,7 @@ I have used React for developing the front-end client, enabling users to interac
 
 ### Local model
 
-![](assets/images/linode.png)
+![](assets/images/local.png)
 
 ![](assets/images/local%20server.png)
 
