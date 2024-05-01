@@ -392,3 +392,23 @@ I have used Docker for packaging and containerization, FastAPI for ML service de
 I have used React for developing the front-end client, enabling users to interact with the image captioning model through an intuitive and user-friendly interface. The client communicates with the ML service via APIs, providing real-time captioning for images uploaded by users. [React_Frontend_Details](/Audieyes/app/react_app/README.md)
 
 ![](/Audieyes/app/react_app/assets/result.png)
+
+# Conclusion
+
+### Local model
+
+![](assets/images/linode.png)
+
+![](assets/images/local%20server.png)
+
+### Docker contained model
+
+![](assets/images/docker.png)
+
+![](assets/images/linode%20server.png)
+
+### Linode deployed model
+
+![](assets/images/linode.png)
+
+![](assets/images/linode%20server.png)
