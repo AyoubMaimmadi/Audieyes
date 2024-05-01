@@ -52,6 +52,8 @@
     - [2- Packaging and containerization](#2--packaging-and-containerization)
     - [3- ML service deployment, and Model serving](#3--ml-service-deployment-and-model-serving)
     - [4- Fron-end client](#4--fron-end-client)
+    - [4- Fron-end client](#4--fron-end-client)
+15. [API Documentation](#api-documentation)
 
 ## Introduction
 
@@ -393,7 +395,7 @@ I have used React for developing the front-end client, enabling users to interac
 
 ![](/Audieyes/app/react_app/assets/result.png)
 
-# Conclusion
+# API Documentation
 
 ### Local model
 
