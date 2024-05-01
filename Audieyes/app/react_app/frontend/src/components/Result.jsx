@@ -27,10 +27,10 @@ const Result = (props) => {
         const formData = new FormData()
         formData.append('file', props.img)
 
-        // console.log("hi");
         try {
-            const url = `http://localhost:5000/after`
-            // const url = `http://127.0.0.1:5000/after`
+            // const url = `http://localhost:5000/after`
+            // const url = `http://127.0.0.1:8080/after`
+            const url = `http://127.0.0.1:8080/after`
             const response = await fetch(url, {
                 method: 'Post',
                 body: formData

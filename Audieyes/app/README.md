@@ -143,3 +143,16 @@ The architecture of the BLIP Image Captioning API can be represented using the f
 |     Client      |
 +-----------------+
 ```
+
+## Deploying the API
+
+```bash
+docker pull ayoubmaimmadi/image-captioning-api
+
+docker run -d -p 8080:5000 blip-image-captioning-api
+
+docker run -d -p 80:5000 blip-image-captioning-api
+
+http://127.0.0.1:8080/after
+
+```

@@ -4,18 +4,17 @@ FROM python:3.9-slim
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy only the necessary directory contents into the container at /app
+# Copy the current directory contents into the container at /app
 COPY . /app
 
-# Install PyTorch and other dependencies
-RUN pip install --no-cache-dir torch torchvision torchaudio \
-    flask flask-cors pillow transformers
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir flask flask-cors Pillow transformers
 
-# Make port 80 available to the world outside this container
-EXPOSE 80
+# Make port 5000 available to the world outside this container
+EXPOSE 5000
 
 # Define environment variable
 ENV NAME World
 
 # Run app.py when the container launches
-CMD ["python", "app.py"]
+CMD ["flask", "run", "--host=0.0.0.0"]
