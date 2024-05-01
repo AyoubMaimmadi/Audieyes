@@ -30,15 +30,17 @@ const Result = (props) => {
         try {
             // const url = `http://localhost:5000/after`
             // const url = `http://127.0.0.1:8080/after`
-            const url = `http://127.0.0.1:8080/after`
-            const response = await fetch(url, {
-                method: 'Post',
+            const url = `http://212.71.255.243/after`
+            fetch(url, {
+                method: 'POST',
                 body: formData
             })
-
-            const data = await response.json()
-            setCaption(data.caption)
-            setCap(data.caption)
+                .then((response) => response.json())
+                .then((data) => {
+                    setCaption(data.caption)
+                    setCap(data.caption)
+                })
+                .catch((error) => console.error('Error:', error))
         } catch (err) {
             console.log(err)
         }

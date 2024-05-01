@@ -151,8 +151,15 @@ docker pull ayoubmaimmadi/image-captioning-api
 
 docker run -d -p 8080:5000 blip-image-captioning-api
 
-docker run -d -p 80:5000 blip-image-captioning-api
+docker run -d -p 80:5000 ayoubmaimmadi/blip-image-captioning-api
 
-http://127.0.0.1:8080/after
+sudo ufw allow 8080/tcp
+sudo ufw reload
+
+sudo ufw allow 80/tcp
+sudo ufw reload
+sudo ufw status
+
+curl -X POST http://139.162.207.136/after -F "key=value"
 
 ```
