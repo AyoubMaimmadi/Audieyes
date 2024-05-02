@@ -45,7 +45,7 @@ BLIP Image Captioning API is a powerful and easy-to-use API that generates descr
 
         ```
 
-        The API will be accessible at `http://localhost:5000`.
+        The API will be accessible at `http://localhost:8080`.
 
 ## Usage
 
@@ -65,7 +65,7 @@ To generate a caption for an image, send a `POST` request to the `/after` endpoi
 Example using cURL:
 
 ```bash
-curl -X POST -F "image=@path/to/image.jpg" -F "text=optional text input" http://localhost:5000/after
+curl -X POST -F "image=@path/to/image.jpg" -F "text=optional text input" http://localhost:8080/after
 ```
 
 ### Response
@@ -149,9 +149,9 @@ The architecture of the BLIP Image Captioning API can be represented using the f
 ```bash
 docker pull ayoubmaimmadi/image-captioning-api
 
-docker run -d -p 8080:5000 blip-image-captioning-api
+docker run -d -p 8080:8080 blip-image-captioning-api
 
-docker run -d -p 80:5000 ayoubmaimmadi/blip-image-captioning-api
+docker run -d -p 80:8080 ayoubmaimmadi/blip-image-captioning-api
 
 sudo ufw allow 8080/tcp
 sudo ufw reload
