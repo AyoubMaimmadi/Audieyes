@@ -39,6 +39,18 @@ jobs:
               run: python3 Audieyes/zemML/pipelines/src/data/train_model.py
             - name: 🔍 Evaluate model
               run: python3 Audieyes/zemML/pipelines/src/data/evaluate_model.py
+            - name: 🐳 Build Docker image
+              run: docker build -t username/repository:tag .
+            - name: 🐳 Push Docker image to Registry
+              run: docker push username/repository:tag
+              env:
+                  DOCKER_USERNAME: ayoubmaimmadi
+                  DOCKER_PASSWORD: 1234
+            - name: 🚀 Deploy model to Linode
+              run: |
+                  ssh -o StrictHostKeyChecking=no root@<@212.71.255.243> "docker pull ayoubmaimmadi/image-captioning-api && docker run -d -p 80:5000 ayoubmaimmadi/blip-image-captioning-api"
+              env:
+                  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
             - name: 🚀 Deploy model
               if: success()
               run: python3 Audieyes/zemML/pipelines/src/data/deploy_model.py

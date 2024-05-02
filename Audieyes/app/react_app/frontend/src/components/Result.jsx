@@ -28,9 +28,9 @@ const Result = (props) => {
         formData.append('file', props.img)
 
         try {
-            // const url = `http://localhost:5000/after`
+            const url = `http://localhost:5000/after`
             // const url = `http://127.0.0.1:8080/after`
-            const url = `http://212.71.255.243/after`
+            // const url = `http://212.71.255.243/after`
             fetch(url, {
                 method: 'POST',
                 body: formData
