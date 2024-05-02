@@ -407,7 +407,7 @@ I have used React for developing the front-end client, enabling users to interac
 
 ![](assets/images/docker.png)
 
-![](assets/images/linode%20server.png)
+![](assets/images/docker%20container.png)
 
 ### Linode deployed model
 
