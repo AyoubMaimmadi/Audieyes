@@ -421,6 +421,8 @@ I have used React for developing the front-end client, enabling users to interac
 
 I have used Grafana and Prometheus for monitoring the deployed model, ensuring that it performs optimally and meets the specified service level objectives. This monitoring setup provides real-time insights into the model's behavior, performance, and resource utilization, enabling proactive maintenance and optimization.
 
+![](assets/images/dash.png)
+
 ### Installation and Configuration
 
 1. **Prometheus**: I have installed and configured Prometheus to collect metrics from the ML service and store them for monitoring and analysis. Prometheus scrapes metrics from the ML service endpoints and stores them in a time-series database for visualization.
