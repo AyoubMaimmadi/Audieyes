@@ -414,3 +414,53 @@ I have used React for developing the front-end client, enabling users to interac
 ![](assets/images/linode.png)
 
 ![](assets/images/linode%20server.png)
+
+# Milestone 7: Monitoring and continual learning
+
+## Monitoring and continual learning
+
+I have used Grafana and Prometheus for monitoring the deployed model, ensuring that it performs optimally and meets the specified service level objectives. This monitoring setup provides real-time insights into the model's behavior, performance, and resource utilization, enabling proactive maintenance and optimization.
+
+### Installation and Configuration
+
+1. **Prometheus**: I have installed and configured Prometheus to collect metrics from the ML service and store them for monitoring and analysis. Prometheus scrapes metrics from the ML service endpoints and stores them in a time-series database for visualization.
+
+2. **Grafana**: I have set up Grafana to visualize the metrics collected by Prometheus, providing real-time dashboards and alerts for monitoring the model's performance. Grafana enables users to track key metrics, identify trends, and troubleshoot issues proactively.
+
+```bash
+sudo apt-get install -y software-properties-common
+sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
+wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install grafana
+```
+
+### Using Docker
+
+```bash
+docker pull grafana/grafana
+docker run -d -p 3000:3000 grafana/grafana
+```
+
+### Starting Grafana
+
+```bash
+sudo systemctl start grafana-server
+sudo systemctl enable grafana-server
+```
+
+## Model performance monitoring
+
+I have used Evidently for monitoring the performance of the image captioning model, ensuring that it maintains high accuracy and reliability over time. Evidently provides comprehensive insights into the model's behavior, enabling users to track key metrics, detect anomalies, and identify areas for improvement.
+
+## Continual learning: CT/CD
+
+I have used Airflow triggers for continual learning, ensuring that the image captioning model is updated and retrained regularly to adapt to changing data and user requirements. Airflow triggers automate the model retraining process, ensuring that the model remains up-to-date and performs optimally.
+
+## Online testing (A/B testing, Bandit)
+
+I have used Seldon-core for online testing, including A/B testing and Bandit algorithms, to evaluate the performance of the image captioning model in real-time. Seldon-core enables users to deploy multiple model versions simultaneously, compare their performance, and optimize model selection based on user feedback and metrics.
+
+## Orchestration
+
+I have used Kubernetes for orchestration, ensuring that the image captioning model is deployed and managed efficiently across different environments. Kubernetes provides a scalable and resilient platform for running containerized applications, enabling users to deploy, scale, and monitor the model with ease.
