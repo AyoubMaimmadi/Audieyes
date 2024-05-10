@@ -54,6 +54,7 @@
     - [4- Fron-end client](#4--fron-end-client)
     - [4- Fron-end client](#4--fron-end-client)
 15. [API Documentation](#api-documentation)
+16. [Milestone 7: Monitoring and continual learning](#milestone-7-monitoring-and-continual-learning)
 
 ## Introduction
 
