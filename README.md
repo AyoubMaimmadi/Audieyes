@@ -328,53 +328,7 @@ I have used GitHub Actions for running behavioural model tests. These tests vali
 
 ## 1- ML system architecture
 
-```txt
-+-----------------------------------+
-|          User Interface           |
-|  (Web, Mobile App, API Endpoint)  |
-+----------------+------------------+
-                 |
-                 v
-+-----------------------------------+
-|      Application Backend          |
-| (Business Logic, User Management) |
-+----------------+------------------+
-                 |
-                 v
-+-----------------------------------+
-|         ML Service Layer          |
-| (APIs for Model Interaction)      |
-+--------+------------+-------------+
-         |            |
-         v            v
-+--------+------+  +--+-------------+
-|  Data Storage |  | Model Training |
-| (Databases,   |  | and Evaluation |
-|  Data Lakes)  |  | (GPU Servers)  |
-+---------------+  +----------------+
-         |                 |
-         |                 |
-         v                 v
-+--------+----------+ +---+---------+
-|  Data Preparation | | BLIP Model  |
-|  and Annotation   | | (Deployed)  |
-|  (ETL Processes)  | +-------------+
-+-------------------+
-         |
-         v
-+--------+------+
-|  Feature      |
-|  Engineering  |
-|  and Selection|
-+---------------+
-         |
-         v
-+--------+------+
-| Pretrained    |
-| Models for    |
-| Feature Ext.  |
-+---------------+
-```
+![](assets/images/architecture.png)
 
 ## 2- Packaging and containerization
 
