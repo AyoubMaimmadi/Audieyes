@@ -306,6 +306,8 @@ I have used ZenML for developing and testing the ML pipeline. ZenML is an open-s
 
 4. **Model Evaluation**: the pipeline evaluates the trained model on the validation set, assessing its performance and identifying areas for improvement. check the evaluation example at line 39 [here](/Audieyes/zemML/pipelines/src/data/__init__.py)
 
+5. **Model Deployment usign CI/CD**: the pipeline deploys the trained model as a service, enabling real-time image captioning for users. check the deployment code [here](/.github/workflows/deployment.yaml)
+
 ## 2 - Behavioural model tests
 
 I have used GitHub Actions for running behavioural model tests. These tests validate the functionality and performance of the image captioning model, ensuring that it meets the specified requirements and quality standards. The tests are executed automatically whenever changes are made to the model codebase, providing continuous feedback on the model's behavior and performance.
