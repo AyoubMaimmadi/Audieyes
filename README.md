@@ -128,7 +128,7 @@ The feasibility of Audieyes is supported by advancements in AI, machine learning
 
 ## Model Card
 
-BLIP is designed for learning visual representations by pretraining on a large-scale dataset combining images and textual annotations. This approach allows the model to understand complex visual concepts and their associations with textual descriptions, enhancing its performance in tasks such as image captioning, visual question answering, and more. You can find the model card on Huggingface ([here](https://huggingface.co/Salesforce/blip-image-captioning-large)). The research paper for BLIP can be found here: [BLIP Research Paper](/Audieyes/references/BLIP.pdf)
+BLIP is designed for learning visual representations by pretraining on a large-scale dataset combining images and textual annotations. This approach allows the model to understand complex visual concepts and their associations with textual descriptions, enhancing its performance in tasks such as image captioning, visual question answering, and more. You can find the model card on Huggingface ([here](https://huggingface.co/Salesforce/blip-image-captioning-large)). The research paper for BLIP can be found here: [BLIP Research Paper](/Modules/references/BLIP.pdf)
 
 ## Example of Input-Output Interaction
 
@@ -269,7 +269,7 @@ In this milestone, we focus on the critical stage of data preparation and valida
 
 ### Data Validation and Verification
 
-**Library Used: Great Expectations** View the code [here](/Audieyes/zemML/pipelines/validation/greate_expectation_validation.ipynb)
+**Library Used: Great Expectations** View the code [here](/Modules/zemML/pipelines/validation/greate_expectation_validation.ipynb)
 
 For data validation and verification, we have chosen Great Expectations, a powerful tool that allows for comprehensive data testing, documentation, and profiling. This library stands out for its ability to adapt to various data forms and its extensive community support. The decision to utilize Great Expectations is driven by its flexibility and the non-TensorFlow-centric nature of some of our data processing tasks.
 
@@ -300,15 +300,15 @@ I have used ZenML for developing and testing the ML pipeline. ZenML is an open-s
 
 ### Key Components of the ML Pipeline
 
-0. **Data Validation**: the pipeline validates the raw data to ensure its quality and integrity before ingestion. Check the code [here](/Audieyes/zemML/pipelines/validation/greate_expectation_validation.ipynb)
+0. **Data Validation**: the pipeline validates the raw data to ensure its quality and integrity before ingestion. Check the code [here](/Modules/zemML/pipelines/validation/greate_expectation_validation.ipynb)
 
-1. **Data Ingestion**: the pipeline ingests raw data from various json sources, including image and text datasets, and preprocesses them for model training. Check the code [here](/Audieyes/zemML/pipelines/src/data/__init__.py)
+1. **Data Ingestion**: the pipeline ingests raw data from various json sources, including image and text datasets, and preprocesses them for model training. Check the code [here](/Modules/zemML/pipelines/src/data/__init__.py)
 
-2. **Data Splitting**: the pipeline splits the preprocessed data into training and validation sets, ensuring that the model is trained on a representative sample of the data. check at line 59 [here](/Audieyes/zemML/pipelines/src/data/coco_karpathy_dataset.py)
+2. **Data Splitting**: the pipeline splits the preprocessed data into training and validation sets, ensuring that the model is trained on a representative sample of the data. check at line 59 [here](/Modules/zemML/pipelines/src/data/coco_karpathy_dataset.py)
 
-3. **Model checkpoint Training**: the pipeline trains the image captioning model using the preprocessed data, leveraging the BLIP model for image captioning. check an example checkpoint [here](/Audieyes/zemML/pipelines/src/models/blip_nlvr.py)
+3. **Model checkpoint Training**: the pipeline trains the image captioning model using the preprocessed data, leveraging the BLIP model for image captioning. check an example checkpoint [here](/Modules/zemML/pipelines/src/models/blip_nlvr.py)
 
-4. **Model Evaluation**: the pipeline evaluates the trained model on the validation set, assessing its performance and identifying areas for improvement. check the evaluation example at line 39 [here](/Audieyes/zemML/pipelines/src/data/__init__.py)
+4. **Model Evaluation**: the pipeline evaluates the trained model on the validation set, assessing its performance and identifying areas for improvement. check the evaluation example at line 39 [here](/Modules/zemML/pipelines/src/data/__init__.py)
 
 5. **Model Deployment usign CI/CD**: the pipeline deploys the trained model as a service, enabling real-time image captioning for users. check the deployment code [here](/.github/workflows/deployment.yaml)
 
@@ -316,13 +316,13 @@ I have used ZenML for developing and testing the ML pipeline. ZenML is an open-s
 
 I have used GitHub Actions for running behavioural model tests. These tests validate the functionality and performance of the image captioning model, ensuring that it meets the specified requirements and quality standards. The tests are executed automatically whenever changes are made to the model codebase, providing continuous feedback on the model's behavior and performance.
 
-1. **Model checkpoints Test**: the test checks that the model checkpoints are generated correctly and contain the expected parameters and metadata. check the test [here](/Audieyes/zemML/tests/checkpoints_tests.py)
+1. **Model checkpoints Test**: the test checks that the model checkpoints are generated correctly and contain the expected parameters and metadata. check the test [here](/Modules/zemML/tests/checkpoints_tests.py)
 
 #### example of a test result:
 
 ![](assets/images/test2.png)
 
-2. **Business Metrics Test**: the test evaluates the model's performance against predefined business metrics, such as operational efficiency, revenue and more. check the test [here](/Audieyes/zemML/tests/metrics_tests.py)
+2. **Business Metrics Test**: the test evaluates the model's performance against predefined business metrics, such as operational efficiency, revenue and more. check the test [here](/Modules/zemML/tests/metrics_tests.py)
 
 #### example of a test result:
 
@@ -336,11 +336,11 @@ I have used GitHub Actions for running behavioural model tests. These tests vali
 
 ## 2- Packaging and containerization
 
-I have used Docker for packaging and containerizing the image captioning model. Docker provides a lightweight, portable container that encapsulates the model and its dependencies, ensuring consistent behavior across different environments. The containerized model can be easily deployed on various platforms, making it accessible to a wide range of users. View details [Docker_Containerization](/Audieyes/docker/README.md)
+I have used Docker for packaging and containerizing the image captioning model. Docker provides a lightweight, portable container that encapsulates the model and its dependencies, ensuring consistent behavior across different environments. The containerized model can be easily deployed on various platforms, making it accessible to a wide range of users. View details [Docker_Containerization](/Modules/docker/README.md)
 
 ## 3- ML service deployment, and Model serving
 
-I have used Docker for packaging and containerization, FastAPI for ML service deployment, and Hugging Face Transformers for model serving. This architecture ensures that the image captioning model is deployed as a scalable and efficient service, accessible via APIs for real-time inference. [Docker_Deployment](/Audieyes/app/README.md)
+I have used Docker for packaging and containerization, FastAPI for ML service deployment, and Hugging Face Transformers for model serving. This architecture ensures that the image captioning model is deployed as a scalable and efficient service, accessible via APIs for real-time inference. [Docker_Deployment](/Modules/app/README.md)
 
 ### API Input Using Swagger UI
 
@@ -350,11 +350,21 @@ I have used Docker for packaging and containerization, FastAPI for ML service de
 
 ![](assets/images/blip_resp.png)
 
-## 4- Fron-end client
+## 4- Kubernetes Deployment
 
-I have used React for developing the front-end client, enabling users to interact with the image captioning model through an intuitive and user-friendly interface. The client communicates with the ML service via APIs, providing real-time captioning for images uploaded by users. [React_Frontend_Details](/Audieyes/app/react_app/README.md)
+I have used Kubernetes for load balancing and scaling the image captioning model, and serving the best performing model version to users. Kubernetes provides a robust platform for managing containerized applications, ensuring high availability, scalability, and reliability for the ML service.
 
-![](/Audieyes/app/react_app/assets/result.png)
+![](assets/images/k8_1.png)
+
+here we can say it is load balancing between 5 pods, meaning 5 different versions of the model are running and the best performing one is served to the user.
+
+![](assets/images/k8_2.png)
+
+## 5- Fron-end client
+
+I have used React for developing the front-end client, enabling users to interact with the image captioning model through an intuitive and user-friendly interface. The client communicates with the ML service via APIs, providing real-time captioning for images uploaded by users. [React_Frontend_Details](/Modules/app/react_app/README.md)
+
+![](/Modules/app/react_app/assets/result.png)
 
 # API Documentation
 
@@ -375,6 +385,10 @@ I have used React for developing the front-end client, enabling users to interac
 ![](assets/images/linode.png)
 
 ![](assets/images/linode%20server.png)
+
+### Kubernetes Service
+
+![](assets/images/k8_3.png)
 
 # Milestone 7: Monitoring and continual learning
 

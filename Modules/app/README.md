@@ -149,13 +149,11 @@ The architecture of the BLIP Image Captioning API can be represented using the f
 ```bash
 docker pull ayoubmaimmadi/image-captioning-api
 
-docker run -d -p 8080:8080 blip-image-captioning-api
-
-docker run -d -p 80:8080 ayoubmaimmadi/blip-image-captioning-api
-
+docker run -d -p 8080:8080 ayoubmaimmadi/blip-image-captioning-api
 sudo ufw allow 8080/tcp
 sudo ufw reload
 
+docker run -d -p 80:8080 ayoubmaimmadi/blip-image-captioning-api
 sudo ufw allow 80/tcp
 sudo ufw reload
 sudo ufw status
