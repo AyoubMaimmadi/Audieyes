@@ -203,9 +203,13 @@ data example:
 
 -   **MLflow** allows you to work with various machine learning libraries, not just TensorFlow. This flexibility enables seamless integration of models from different frameworks, essential for combining image captioning and temporal modeling in our project.
 
+![](assets/images/mlflow.png)
+
 ### Experiment Tracking and Model Versioning
 
 -   **MLflow** offers robust capabilities for experiment tracking and model versioning. Logging parameters, metrics, and artifacts for each experiment is streamlined, ensuring reproducibility and facilitating collaboration.
+
+![](assets/images/mlflow2.png)
 
 ### Ease of Use and Learning Curve
 
