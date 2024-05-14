@@ -40,7 +40,7 @@ jobs:
             - name: 🔍 Evaluate model
               run: python3 Audieyes/zemML/pipelines/src/data/evaluate_model.py
             - name: 🐳 Build Docker image
-              run: docker build -t username/repository:tag .
+              run: docker build -t ayoubmaimmadi/blip-image-captioning-api.
             - name: 🐳 Push Docker image to Registry
               run: docker push username/repository:tag
               env:
