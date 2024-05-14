@@ -11,3 +11,5 @@ spec:
           targetPort: 5000
     selector:
         app: evidently
+    externalIPs:
+        - 'http://evidently-service.default.svc.cluster.local:5000/metrics'

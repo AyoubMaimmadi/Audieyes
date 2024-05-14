@@ -1,23 +1,56 @@
 import requests
 
-def send_metrics_to_evidently(metrics):
-    url = "http://evidently-service.default.svc.cluster.local:5000/metrics"
-    response = requests.post(url, json=metrics)
-    if response.status_code == 200:
-        print("Metrics sent successfully.")
-    else:
-        print("Failed to send metrics. Status code:", response.status_code)
+def fetch_metrics_from_endpoint(endpoint):
+    try:
+        response = requests.get(endpoint)
+        if response.status_code == 200:
+            return response.json()  
+        else:
+            print(f"Failed to fetch metrics from {endpoint}. Status code: {response.status_code}")
+            return None
+    except Exception as e:
+        print(f"Error fetching metrics from {endpoint}: {e}")
+        return None
 
-metrics = {
-    "TR@1": 0.85,     # Text Retrieval at 1
-    "IR@1": 0.90,     # Image Retrieval at 1
-    "TR@5": 0.92,     # Text Retrieval at 5
-    "IR@5": 0.88,     # Image Retrieval at 5
-    "TR@10": 0.95,    # Text Retrieval at 10
-    "IR@10": 0.93,    # Image Retrieval at 10
-    "B@4": 0.75,      # BLEU-4 Score
-    "CIDEr": 1.02,    # Consensus-based Image Description Evaluation
-    "SPICE": 0.65     # Semantic Propositional Image Caption Evaluation
+def send_metrics_to_evidently(metrics, model_name):
+    url = "http://evidently-service.default.svc.cluster.local:5000/metrics"
+    data = {
+        "model_name": model_name,
+        "metrics": metrics
+    }
+    response = requests.post(url, json=data)
+    if response.status_code == 200:
+        print(f"Metrics sent successfully for {model_name}.")
+    else:
+        print(f"Failed to send metrics for {model_name}. Status code:", response.status_code)
+
+def evaluate_models_with_evidently():
+    url = "http://evidently-service.default.svc.cluster.local:5000/evaluate"
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json() 
+    else:
+        print(f"Failed to evaluate models. Status code: {response.status_code}")
+        return None
+
+# List of model endpoints
+endpoints = {
+    "model_1": "http://10.2.0.131:80/metrics",
+    "model_2": "http://10.2.0.132:80/metrics",
+    "model_3": "http://10.2.0.5:80/metrics",
+    "model_4": "http://10.2.0.135:80/metrics",
+    "model_5": "http://10.2.0.136:80/metrics",
 }
 
-send_metrics_to_evidently(metrics)
+# Fetch metrics and send to Evidently
+for model_name, endpoint in endpoints.items():
+    metrics = fetch_metrics_from_endpoint(endpoint)
+    if metrics:
+        send_metrics_to_evidently(metrics, model_name)
+
+# Evaluate models and determine the best one
+evaluation_results = evaluate_models_with_evidently()
+if evaluation_results:
+    best_model = max(evaluation_results, key=lambda x: x["score"])
+    best_model_endpoint = endpoints[best_model["model_name"]]
+    
