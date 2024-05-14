@@ -400,16 +400,87 @@ I have used Grafana and Prometheus for monitoring the deployed model, ensuring t
 
 ### Installation and Configuration
 
-1. **Prometheus**: I have installed and configured Prometheus to collect metrics from the ML service and store them for monitoring and analysis. Prometheus scrapes metrics from the ML service endpoints and stores them in a time-series database for visualization.
+1. **Grafana**: I have set up Grafana to visualize the metrics collected by Linode, providing real-time dashboards and alerts for monitoring the model's performance. Grafana enables users to track key metrics, identify trends, and troubleshoot issues proactively.
 
-2. **Grafana**: I have set up Grafana to visualize the metrics collected by Prometheus, providing real-time dashboards and alerts for monitoring the model's performance. Grafana enables users to track key metrics, identify trends, and troubleshoot issues proactively.
+2. **Evidently**: I have used Evidently for monitoring the performance of the image captioning model, ensuring that it maintains high accuracy and reliability over time. Evidently provides comprehensive insights into the model's behavior, enabling users to track key metrics, detect anomalies, and identify areas for improvement.
 
-```bash
-sudo apt-get install -y software-properties-common
-sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
-wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
-sudo apt-get update
-sudo apt-get install grafana
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+    name: evidently-service
+    labels:
+        app: evidently
+spec:
+    type: ClusterIP
+    ports:
+        - port: 5000
+          targetPort: 5000
+    selector:
+        app: evidently
+    externalIPs:
+        - 'http://evidently-service.default.svc.cluster.local:5000/metrics'
+```
+
+how they connect:
+
+```python
+import requests
+
+def fetch_metrics_from_endpoint(endpoint):
+    try:
+        response = requests.get(endpoint)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            print(f"Failed to fetch metrics from {endpoint}. Status code: {response.status_code}")
+            return None
+    except Exception as e:
+        print(f"Error fetching metrics from {endpoint}: {e}")
+        return None
+
+def send_metrics_to_evidently(metrics, model_name):
+    url = "http://evidently-service.default.svc.cluster.local:5000/metrics"
+    data = {
+        "model_name": model_name,
+        "metrics": metrics
+    }
+    response = requests.post(url, json=data)
+    if response.status_code == 200:
+        print(f"Metrics sent successfully for {model_name}.")
+    else:
+        print(f"Failed to send metrics for {model_name}. Status code:", response.status_code)
+
+def evaluate_models_with_evidently():
+    url = "http://evidently-service.default.svc.cluster.local:5000/evaluate"
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json()
+    else:
+        print(f"Failed to evaluate models. Status code: {response.status_code}")
+        return None
+
+# Deplyed model checkpoints endpoints
+endpoints = {
+    "model_1": "http://10.2.0.131:80/metrics",
+    "model_2": "http://10.2.0.132:80/metrics",
+    "model_3": "http://10.2.0.5:80/metrics",
+    "model_4": "http://10.2.0.135:80/metrics",
+    "model_5": "http://10.2.0.136:80/metrics",
+}
+
+# Fetch metrics and send to Evidently
+for model_name, endpoint in endpoints.items():
+    metrics = fetch_metrics_from_endpoint(endpoint)
+    if metrics:
+        send_metrics_to_evidently(metrics, model_name)
+
+# Evaluate models and determine the best one
+evaluation_results = evaluate_models_with_evidently()
+if evaluation_results:
+    best_model = max(evaluation_results, key=lambda x: x["score"])
+    best_model_endpoint = endpoints[best_model["model_name"]]
+
 ```
 
 ### Using Docker
