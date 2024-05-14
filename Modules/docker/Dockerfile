@@ -7,6 +7,6 @@ COPY ./requirements.txt /app
 COPY ./*.py /app
 
 RUN apt update && apt install build-essential -y && apt-get install manpages-dev -y \
-    && pip install -r /app/requirements.txt
+    && pip install -r /app/requirements.txt && pip install evidently
 
 CMD cd /app && python main.py
