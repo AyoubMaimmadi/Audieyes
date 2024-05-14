@@ -402,6 +402,10 @@ I have used Grafana and Prometheus for monitoring the deployed model, ensuring t
 
 1. **Grafana**: I have set up Grafana to visualize the metrics collected by Linode, providing real-time dashboards and alerts for monitoring the model's performance. Grafana enables users to track key metrics, identify trends, and troubleshoot issues proactively.
 
+![](assets/images/performance1.png)
+
+![](assets/images/perforamance2.png)
+
 2. **Evidently**: I have used Evidently for monitoring the performance of the image captioning model, ensuring that it maintains high accuracy and reliability over time. Evidently provides comprehensive insights into the model's behavior, enabling users to track key metrics, detect anomalies, and identify areas for improvement.
 
 ```yaml
