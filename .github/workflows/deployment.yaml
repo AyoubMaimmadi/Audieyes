@@ -27,6 +27,7 @@ jobs:
               run: |
                   python3 -m pytest Audieyes/zemML/tests/checkpoints_tests.py
                   python3 -m pytest Audieyes/zemML/tests/metrics_tests.py
+                  python3 -m pytest Audieyes/zemML/tests/intergation_tests.py
     train_evaluate_deploy:
         needs: lintandformat
         runs-on: ubuntu-latest
