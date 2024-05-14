@@ -40,6 +40,7 @@ def get_business_metrics():
     ('CIDEr', 1.0),
     ('SPICE', 0.65)
 ])
+
 def test_model_performance_metrics(metric, threshold):
     assert get_model_metrics(metric) >= threshold, f"Metric {metric} is below the threshold of {threshold}"
 
