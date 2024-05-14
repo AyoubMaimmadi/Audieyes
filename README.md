@@ -398,7 +398,7 @@ I have used Grafana and Prometheus for monitoring the deployed model, ensuring t
 
 ![](assets/images/dash.png)
 
-### Installation and Configuration
+### Monitoring the model's resource utilization and performance
 
 1. **Grafana**: I have set up Grafana to visualize the metrics collected by Linode, providing real-time dashboards and alerts for monitoring the model's performance. Grafana enables users to track key metrics, identify trends, and troubleshoot issues proactively.
 
@@ -482,24 +482,6 @@ if evaluation_results:
     best_model_endpoint = endpoints[best_model["model_name"]]
 
 ```
-
-### Using Docker
-
-```bash
-docker pull grafana/grafana
-docker run -d -p 3000:3000 grafana/grafana
-```
-
-### Starting Grafana
-
-```bash
-sudo systemctl start grafana-server
-sudo systemctl enable grafana-server
-```
-
-## Model performance monitoring
-
-I have used Evidently for monitoring the performance of the image captioning model, ensuring that it maintains high accuracy and reliability over time. Evidently provides comprehensive insights into the model's behavior, enabling users to track key metrics, detect anomalies, and identify areas for improvement.
 
 ## Continual learning: CT/CD
 
