@@ -18,19 +18,26 @@ def send_metrics_to_evidently(metrics, model_name):
         "model_name": model_name,
         "metrics": metrics
     }
-    response = requests.post(url, json=data)
-    if response.status_code == 200:
-        print(f"Metrics sent successfully for {model_name}.")
-    else:
-        print(f"Failed to send metrics for {model_name}. Status code:", response.status_code)
+    try:
+        response = requests.post(url, json=data)
+        if response.status_code == 200:
+            print(f"Metrics sent successfully for {model_name}.")
+        else:
+            print(f"Failed to send metrics for {model_name}. Status code: {response.status_code}")
+    except Exception as e:
+        print(f"Error sending metrics to Evidently: {e}")
 
 def evaluate_models_with_evidently():
     url = "http://evidently-service.default.svc.cluster.local:5000/evaluate"
-    response = requests.get(url)
-    if response.status_code == 200:
-        return response.json() 
-    else:
-        print(f"Failed to evaluate models. Status code: {response.status_code}")
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            return response.json() 
+        else:
+            print(f"Failed to evaluate models. Status code: {response.status_code}")
+            return None
+    except Exception as e:
+        print(f"Error evaluating models with Evidently: {e}")
         return None
 
 # List of model endpoints
@@ -53,4 +60,4 @@ evaluation_results = evaluate_models_with_evidently()
 if evaluation_results:
     best_model = max(evaluation_results, key=lambda x: x["score"])
     best_model_endpoint = endpoints[best_model["model_name"]]
-    
+    print(f"The best model is {best_model['model_name']} with endpoint {best_model_endpoint}")
