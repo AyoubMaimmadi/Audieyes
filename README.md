@@ -58,7 +58,8 @@
     - [Monitoring and continual learning](#monitoring-and-continual-learning)
     - [Continual learning: CT/CD](#continual-learning-ctcd)
     - [Online testing (A/B testing, Bandit)](#online-testing-ab-testing-bandit)
-    - [Orchestration](#orchestration)
+    - [Checkpoint Orchestration](#checkpoint-orchestration)
+    - [Pipline Orchestration](#pipline-orchestration)
 
 ## Introduction
 
@@ -424,7 +425,7 @@ I have used Airflow triggers for continual learning, ensuring that the image cap
 
 ## Online testing (A/B testing, Bandit)
 
-I have used Seldon-core for online testing, including A/B testing and Bandit algorithms, to evaluate the performance of the image captioning model in real-time. Seldon-core enables users to deploy multiple model versions simultaneously, compare their performance, and optimize model selection based on user feedback and metrics.
+I have used Seldon-core for online testing, including A/B testing and Bandit algorithms, to evaluate the performance of the image captioning model in real-time. Seldon-core enables users to deploy multiple model versions simultaneously, compare their performance, and optimize model selection based on user feedback and metrics. View [Seldon_Core_Deployment](/Modules/Kubernetes/README.md).
 
 ## Checkpoint Orchestration
 
