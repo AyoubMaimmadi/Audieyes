@@ -1,0 +1,29 @@
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: audieyes-deployment
+  namespace: default
+spec:
+  name: audieyes
+  predictors:
+  - graph:
+      name: audieyes
+      implementation: SIMPLE_MODEL
+      modelUri: gs://model/ayoubmaimmadi/blip-image-captioning-api  
+    name: audieyes-predictor
+    replicas: 3
+    componentSpecs:
+    - spec:
+        containers:
+        - name: audieyes
+          image: ayoubmaimmadi/blip-image-captioning-api
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: '64Mi'
+              cpu: '250m'
+            limits:
+              memory: '128Mi'
+              cpu: '500m'
