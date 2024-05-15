@@ -70,4 +70,4 @@ jobs:
 
             - name: 🚀 Deploy model script
               if: success()
-              run: python3 Audieyes/zemML/pipelines/src/data/deploy_model.py
+              run: python3 Audieyes/zemML/run.py
