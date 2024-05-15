@@ -20,7 +20,7 @@ from typing import Optional
 
 import click
 import yaml
-from pipelines import (
+from pipelines.validation import (
     feature_engineering,
     inference,
     training,
@@ -29,7 +29,6 @@ from zenml.client import Client
 from zenml.logger import get_logger
 
 logger = get_logger(__name__)
-
 
 @click.command(
     help="""

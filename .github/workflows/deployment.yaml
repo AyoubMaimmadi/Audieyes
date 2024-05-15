@@ -59,8 +59,8 @@ jobs:
             - name: 🐳 Push Docker image to Registry
               run: docker push ayoubmaimmadi/blip-image-captioning-api:latest
               env:
-                  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-                  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+                  DOCKER_USERNAME: ayoubmaimmadi
+                  DOCKER_PASSWORD: 1234
 
             - name: 🚀 Deploy model to Linode
               run: |

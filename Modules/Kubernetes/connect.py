@@ -40,7 +40,6 @@ def evaluate_models_with_evidently():
         print(f"Error evaluating models with Evidently: {e}")
         return None
 
-# List of model endpoints
 endpoints = {
     "model_1": "http://10.2.0.131:80/metrics",
     "model_2": "http://10.2.0.132:80/metrics",
@@ -55,9 +54,9 @@ for model_name, endpoint in endpoints.items():
     if metrics:
         send_metrics_to_evidently(metrics, model_name)
 
-# Evaluate models and determine the best one
+# Evaluate models based on user feedback and determine the best one
 evaluation_results = evaluate_models_with_evidently()
 if evaluation_results:
-    best_model = max(evaluation_results, key=lambda x: x["score"])
+    best_model = max(evaluation_results, key=lambda x: x["user_feedback_score"])
     best_model_endpoint = endpoints[best_model["model_name"]]
-    print(f"The best model is {best_model['model_name']} with endpoint {best_model_endpoint}")
+    print(f"The best model based on user feedback is {best_model['model_name']} with endpoint {best_model_endpoint}")
