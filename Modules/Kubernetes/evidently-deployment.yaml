@@ -1,28 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: evidently-deployment
-    labels:
-        app: evidently
+  name: evidently-deployment
+  labels:
+    app: evidently
 spec:
-    replicas: 1
-    selector:
-        matchLabels:
-            app: evidently
-    template:
-        metadata:
-            labels:
-                app: evidently
-        spec:
-            containers:
-                - name: evidently
-                  image: evidently/evidently-service
-                  ports:
-                      - containerPort: 5000
-                  resources:
-                      requests:
-                          memory: '128Mi'
-                          cpu: '250m'
-                      limits:
-                          memory: '256Mi'
-                          cpu: '500m'
+  replicas: 1
+  selector:
+    matchLabels:
+      app: evidently
+  template:
+    metadata:
+      labels:
+        app: evidently
+    spec:
+      containers:
+        - name: evidently
+          image: evidently/evidently-service
+          ports:
+            - containerPort: 5000
+          resources:
+            requests:
+              memory: '128Mi'
+              cpu: '250m'
+            limits:
+              memory: '256Mi'
+              cpu: '500m'
