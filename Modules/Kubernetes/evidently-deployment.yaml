@@ -1,24 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: evidently-deployment
+  name: evidently-metrics-fetcher-deployment
   labels:
-    app: evidently
+    app: evidently-metrics-fetcher
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: evidently
+      app: evidently-metrics-fetcher
   template:
     metadata:
       labels:
-        app: evidently
+        app: evidently-metrics-fetcher
     spec:
       containers:
-        - name: evidently
-          image: evidently/evidently-service
-          ports:
-            - containerPort: 5000
+        - name: evidently-metrics-fetcher
+          image: ayoubmaimmadi/evidently-metrics-fetcher
+          imagePullPolicy: Always
           resources:
             requests:
               memory: '128Mi'
