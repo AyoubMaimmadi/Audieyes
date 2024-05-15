@@ -426,8 +426,88 @@ I have used Airflow triggers for continual learning, ensuring that the image cap
 
 I have used Seldon-core for online testing, including A/B testing and Bandit algorithms, to evaluate the performance of the image captioning model in real-time. Seldon-core enables users to deploy multiple model versions simultaneously, compare their performance, and optimize model selection based on user feedback and metrics.
 
-## Orchestration
+## Checkpoint Orchestration
 
-I have used Kubernetes for orchestration, ensuring that the image captioning model is deployed and managed efficiently across different environments. Kubernetes provides a scalable and resilient platform for running containerized applications, enabling users to deploy, scale, and monitor the model with ease.
+I have used Kubernetes for orchestration, ensuring that the image captioning model is deployed and managed efficiently across different environments. Kubernetes provides a scalable and resilient platform for running containerized applications, enabling users to deploy, scale, and monitor the model with ease. View [Kubernetes_Deployment](/Modules/Kubernetes/audieyes_deployment.yaml), and [Kubernetes_Service](./Modules/Kubernetes/audieyes_service.yaml) for deplyment and service details.
 
 ![](assets/images/k8.png)
+
+## Pipline Orchestration
+
+I have used GitHub Actions for pipeline orchestration, ensuring that the image captioning model is built, tested, and deployed automatically. I have used Cron Jobs to run the workflow at midnight on the first day of each month, ensuring that the model is updated regularly and remains up-to-date.
+
+```yaml
+name: Check build, code style, and tests
+
+on:
+    workflow_dispatch:
+    pull_request:
+    schedule:
+        - cron: '0 0 1 * *' # This will run the workflow at midnight on the first day of each month
+
+jobs:
+    lintandformat:
+        name: 🧹 Audieyes Linting & Testing
+        runs-on: ubuntu-latest
+        timeout-minutes: 5
+        env:
+            CI: false
+        steps:
+            - name: 🛒 Checkout
+              uses: actions/checkout@v2
+
+            - name: 🟩 Use Node 18.x
+              uses: actions/setup-node@v1
+              with:
+                  node-version: '18.x'
+
+            - name: 📦 Install dependencies for server
+              run: cd Audieyes/app/server && npm i
+
+            - name: 📦 Install dependencies for model
+              run: pip install -r requirements.txt
+
+            - name: 🧪 Run tests
+              run: |
+                  python3 -m pytest Audieyes/zemML/tests/checkpoints_tests.py
+                  python3 -m pytest Audieyes/zemML/tests/metrics_tests.py
+                  python3 -m pytest Audieyes/zemML/tests/integration_tests.py
+
+    train_evaluate_deploy:
+        needs: lintandformat
+        runs-on: ubuntu-latest
+        steps:
+            - name: 🛒 Checkout code
+              uses: actions/checkout@v2
+
+            - name: 📦 Install dependencies for model
+              run: pip install -r requirements.txt
+
+            - name: 🔄 Pull data from DVC
+              run: dvc pull
+
+            - name: 🚂 Train model
+              run: python3 Audieyes/zemML/pipelines/src/data/train_model.py
+
+            - name: 🔍 Evaluate model
+              run: python3 Audieyes/zemML/pipelines/src/data/evaluate_model.py
+
+            - name: 🐳 Build Docker image
+              run: docker build -t ayoubmaimmadi/blip-image-captioning-api .
+
+            - name: 🐳 Push Docker image to Registry
+              run: docker push ayoubmaimmadi/blip-image-captioning-api:latest
+              env:
+                  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+                  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+            - name: 🚀 Deploy model to Linode
+              run: |
+                  ssh -o StrictHostKeyChecking=no root@212.71.255.243 "docker pull ayoubmaimmadi/blip-image-captioning-api:latest && docker run -d -p 80:5000 ayoubmaimmadi/blip-image-captioning-api:latest"
+              env:
+                  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+            - name: 🚀 Deploy model script
+              if: success()
+              run: python3 Audieyes/zemML/pipelines/src/data/deploy_model.py
+```
