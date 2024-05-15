@@ -4,10 +4,10 @@ This project contains a Python script that fetches metrics from various model en
 
 ## Prerequisites
 
-- Docker
-- Kubernetes cluster
-- kubectl command-line tool
-- Docker Hub account (or another container registry)
+-   Docker
+-   Kubernetes cluster
+-   kubectl command-line tool
+-   Docker Hub account (or another container registry)
 
 ## Step-by-Step Guide
 
@@ -40,20 +40,47 @@ Please check the file [Kubernetes_Deployment](./evidently-deployment.yaml)
 
 We run it using: kubectl apply -f evidently-metrics-fetcher-deployment.yaml
 
-
 # Seldon Core Deployment
 
-This contains instructions for deploying a machine learning model using Seldon Core on a Kubernetes cluster. The model will be packaged in a Kubernetes deployment.
+This project contains instructions for deploying a machine learning model using Seldon Core on a Kubernetes cluster. The model will be packaged in a Docker container and managed using Seldon Core.
 
 ## Prerequisites
 
-- Kubernetes cluster
-- kubectl command-line tool
-- Seldon Core installed on Kubernetes cluster
+-   Kubernetes cluster >= 1.23
+-   Helm version >= 3.0
+-   kubectl command-line tool
+-   Docker Hub account (or another container registry)
 
-### Step 1: Kubernetes deployment
+## Step-by-Step Guide
 
-Generate yaml deployment that is inherently connected with the model, please view: [Seldon_Core_Kubernetes_Deployment](./seldon-deployment.yaml)
+### Step 1: Install Seldon Core
 
-and the apply it: kubectl apply -f seldon-deployment.yaml
+#### Install Helm 3.x
 
+We have followed the instructions on the [Install Seldon core on Kubernetes](https://docs.seldon.io/projects/seldon-core/en/latest/workflow/install.html#).
+
+#### Install Seldon Core using Helm
+
+1. We Add the Seldon Core Helm repo and update:
+
+    ```bash
+    helm repo add seldonio https://storage.googleapis.com/seldon-charts
+    helm repo update
+    ```
+
+2. We Creates the `seldon-system` namespace:
+
+    ```bash
+    kubectl create namespace seldon-system
+    ```
+
+3. We Install Seldon Core in the `seldon-system` namespace with Istio enabled:
+
+    ```bash
+    helm install seldon-core seldonio/seldon-core-operator \
+        --set usageMetrics.enabled=true \
+        --set istio.enabled=true \
+        --namespace seldon-system
+    ```
+
+### Step 2: Add to the Dockerfile for Our Model and deploy it

@@ -55,6 +55,10 @@
     - [4- Fron-end client](#4--fron-end-client)
 15. [API Documentation](#api-documentation)
 16. [Milestone 7: Monitoring and continual learning](#milestone-7-monitoring-and-continual-learning)
+    - [Monitoring and continual learning](#monitoring-and-continual-learning)
+    - [Continual learning: CT/CD](#continual-learning-ctcd)
+    - [Online testing (A/B testing, Bandit)](#online-testing-ab-testing-bandit)
+    - [Orchestration](#orchestration)
 
 ## Introduction
 
@@ -410,7 +414,9 @@ I have used Grafana and Prometheus for monitoring the deployed model, ensuring t
 
 View code and details [Evidently_Deployment_Details](/Modules/Kubernetes/README.md)
 
-3. **Seldon Core**: I have used Seldon Core for online testing for the image captioning model. View code and details [Evidently_Deployment_Details](/Modules/Kubernetes/README.md)
+3. **Seldon Core**: I have used Seldon Core for monitoring the model's performance and resource utilization, ensuring that it meets the specified service level objectives. Seldon Core provides real-time insights into the model's behavior, enabling users to optimize performance, scale resources, and troubleshoot issues efficiently.
+
+View code and details [Evidently_Deployment_Details](/Modules/Kubernetes/README.md)
 
 ## Continual learning: CT/CD
 
