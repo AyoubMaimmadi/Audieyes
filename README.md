@@ -429,3 +429,5 @@ I have used Seldon-core for online testing, including A/B testing and Bandit alg
 ## Orchestration
 
 I have used Kubernetes for orchestration, ensuring that the image captioning model is deployed and managed efficiently across different environments. Kubernetes provides a scalable and resilient platform for running containerized applications, enabling users to deploy, scale, and monitor the model with ease.
+
+![](assets/images/k8.png)
