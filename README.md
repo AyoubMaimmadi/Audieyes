@@ -60,6 +60,11 @@
     - [Online testing (A/B testing, Bandit)](#online-testing-ab-testing-bandit)
     - [Checkpoint Orchestration](#checkpoint-orchestration)
     - [Pipline Orchestration](#pipline-orchestration)
+17. [Milestone 8: Responsible AI](#milestone-8-responsible-ai)
+    - [1- Evaluation Beyond Accuracy](#1--evaluation-beyond-accuracy)
+        - [Audit Model for Bias and Fairness](#audit-model-for-bias-and-fairness)
+        - [Model Explainability and Interpretability](#model-explainability-and-interpretability)
+18. [Conclusion](#conclusion)
 
 ## Introduction
 
