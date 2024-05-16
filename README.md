@@ -444,3 +444,49 @@ on:
     schedule:
         - cron: '0 0 1 * *' # This will run the workflow at midnight on the first day of each month
 ```
+
+# Milestone 8: Responsible AI
+
+## 1- Evaluation Beyond Accuracy
+
+In the development and deployment of AI systems, ensuring the responsible use of technology is paramount. This includes evaluating models not just for their accuracy but also for their fairness, transparency, and potential biases. By auditing models for bias, we can identify and mitigate any unfair treatment of specific groups, ensuring that the technology benefits all users equitably.
+
+### Audit Model for Bias and Fairness
+
+To audit our image captioning model for bias, we use the Aequitas toolkit, an open-source bias and fairness audit tool designed to evaluate machine learning models. Aequitas helps us understand the fairness of our model by assessing its performance across different demographic groups and identifying any disparities.
+
+![](assets/images/aequitas.png)
+
+In this example, we use Aequitas to evaluate the disparity in model performance between different caption groups. We generate cross-tabulations of the model's performance metrics, calculate bias metrics, and visualize the results to understand any disparities.
+
+By incorporating Aequitas into our workflow, we ensure that our model is evaluated for fairness and bias, promoting the development of responsible AI systems. This step is crucial for ensuring that the Audieyes project not only meets technical standards but also aligns with ethical considerations, ultimately providing equitable benefits to all users.
+
+### Model Explainability and Interpretability
+
+Ensuring that our AI models are explainable and interpretable is crucial for building trust and transparency. Model explainability helps us understand how our models make decisions, which is essential for debugging, improving model performance, and ensuring fairness. By using tools like SHAP (SHapley Additive exPlanations) or LIME (Local Interpretable Model-agnostic Explanations), we can gain insights into the inner workings of our models and explain their predictions.
+
+**SHAP**: SHAP is a powerful tool for interpreting machine learning models. It provides consistent and interpretable explanations of the predictions made by the model by attributing the prediction to the input features.
+
+![](assets/images/shap.png)
+
+**Lime**: LIME is another popular tool for model interpretability. It explains the predictions of machine learning models by approximating the model's behavior locally around a specific instance.
+
+![](assets/images/lime.png)
+
+In this example, we:
+• Load a sample dataset and train a simple model (replace this with your actual model and data).
+• Initialize a LIME explainer for the model.
+• Select a data point to explain.
+• Generate and display the explanation for the selected data point.
+
+LIME provides insights into which features are most influential for a specific prediction, making it easier to understand and trust the model's decisions.
+
+By incorporating SHAP or LIME into our workflow, we ensure that our AI models are transparent and interpretable. This enhances trust and accountability, making it easier to debug and improve models while ensuring they align with ethical standards and provide fair and unbiased results.
+
+# Conclusion
+
+The Audieyes project leverages AI to enhance accessibility for the visually impaired, providing advanced image and video captioning using Salesforce's BLIP. Our approach integrates robust data management with DVC, efficient model tracking with MLflow, and scalable deployment using Docker and Kubernetes.
+
+We prioritize responsible AI by auditing for bias with Aequitas and ensuring model interpretability with SHAP. This comprehensive, ethical approach ensures our models are accurate, fair, and transparent.
+
+By combining cutting-edge technology with rigorous development and deployment practices, Audieyes empowers users, promotes inclusivity, and significantly improves quality of life for the visually impaired community.
