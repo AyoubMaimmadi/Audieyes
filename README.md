@@ -70,6 +70,8 @@
 
 Welcome to Audieyes, a groundbreaking project designed to empower the visually impaired community through innovative technology. Audieyes represents a leap forward in accessibility, offering a suite of features that promise to enhance autonomy, safety, and quality of life for its users. Inspired by a commitment to inclusivity and the transformative potential of technology, Audieyes aims to bridge the gap between the world's visual challenges and the possibilities afforded by digital innovation.
 
+Collaborators: @AyoubMaimmadi & @RimMiftah
+
 ## Problem Statement
 
 Despite significant advancements in technology, the visually impaired community often encounters barriers to accessibility and independence. From challenges in identifying clothing and colors to navigating unfamiliar environments and accessing printed materials, the need for comprehensive, user-friendly solutions is evident. Audieyes seeks to address these challenges head-on, leveraging cutting-edge technology to provide practical, empowering solutions.
